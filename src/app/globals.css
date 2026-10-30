@@ -147,15 +147,6 @@ details > p { padding: 0 40px 28px 0; font-size: 16px; color: var(--muted); }
 .footer-bottom > a, .design-credit a { text-decoration: underline; text-underline-offset: 3px; }
 .design-credit { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding-top: 16px; font-size: 13px; color: #b5c7bd; }
 
-/* Dialog */
-.event-dialog { width: min(520px, calc(100% - 32px)); padding: 48px; border: 1px solid #cbd5df; border-radius: 16px; background: var(--paper); color: var(--ink); box-shadow: 0 24px 120px #172b4233; }
-.event-dialog::backdrop { background: #162e4a60; backdrop-filter: blur(5px); }
-.event-dialog h2 { margin-bottom: 18px; font-size: 46px; }
-.event-dialog > p { font-size: 16px; color: var(--muted); }
-.event-dialog .dialog-note { margin: 20px 0; font-family: var(--mono); font-size: 12px; }
-.dialog-close { position: absolute; right: 18px; top: 12px; border: 0; background: none; font-size: 30px; color: var(--ink); }
-.event-dialog .button { margin-top: 10px; }
-
 @media (max-width: 900px) {
   .section-wrap { padding: 64px 32px; }
   .about-grid, .schedule-grid, .community, .faq { grid-template-columns: 1fr; gap: 44px; }

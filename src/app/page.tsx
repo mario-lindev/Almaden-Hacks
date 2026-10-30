@@ -8,7 +8,7 @@ import { AsciiText, Constellation, Donut, Gear } from "@/components/AsciiScenes"
 
 const faqs = [
   ["New to hackathons?", "You’re welcome here. Build an app, game, website, or hardware project with other high school students. No experience needed."],
-  ["When and where?", "We’re targeting May–June in Almaden Valley, San Jose. The date, venue, and full eligibility details will be announced before registration opens."],
+  ["When and where?", "We’re targeting May–June in Almaden Valley, San Jose. The date, venue, and full eligibility details are coming soon."],
   ["Do I need a team?", "Come with friends or meet teammates at the event. Bring a laptop and charger; team details and a packing list will follow."],
   ["Will there be hardware?", "Yes! Hardware will be part of Almaden Hacks, alongside software projects. Details on available equipment and materials are coming soon."],
   ["Can I help or sponsor?", "Yes. Support the event through our HCB page. Mentor and sponsorship details are coming soon."],
@@ -48,7 +48,7 @@ export default function Home() {
 
       <section className="community section-wrap" id="community">
         <Scramble lines={["The best part?", "The people."]} />
-        <div className="community-copy" data-reveal><p>Meet future teammates and catch event announcements on Discord.</p><EventActions kind="discord" /><span className="availability">Community invite coming soon</span></div>
+        <div className="community-copy" data-reveal><p>Meet future teammates and catch event announcements on Discord.</p><EventActions kind="discord" /><span className="availability">Community is open</span></div>
       </section>
 
       <section className="sponsors section-wrap" id="sponsors">
