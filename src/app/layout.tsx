@@ -37,14 +37,14 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Almaden Hacks",
-    description: "Big ideas. A little wild ambition. A high school hackathon from the heart of Almaden.",
+    description: "A high school hackathon for software and hardware projects in San Jose.",
     siteName: "Almaden Hacks",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Almaden Hacks",
-    description: "Big ideas. A little wild ambition. A high school hackathon from the heart of Almaden.",
+    description: "A high school hackathon for software and hardware projects in San Jose.",
   },
 };
 

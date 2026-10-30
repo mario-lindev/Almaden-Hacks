@@ -63,15 +63,11 @@ h2 { font-size: clamp(48px, 5.6vw, 84px); }
 .hero h1 { font-size: clamp(76px, min(11vw, 16svh), 176px); line-height: .95; letter-spacing: -.045em; color: #2c456b; }
 .hero-description { max-width: 760px; margin: 16px auto 0; font-size: 18px; line-height: 1.5; color: #5b6b7c; }
 .hero-actions { display: flex; align-items: center; justify-content: center; gap: 30px; margin-top: 26px; }
-.event-meta { display: flex; justify-content: center; align-items: center; gap: 14px; margin-top: 20px; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.status-dot { width: 7px; height: 7px; border-radius: 50%; background: #5d8873; box-shadow: 0 0 0 0 #5d887388; animation: pulse 2.4s infinite; }
-@keyframes pulse { 70% { box-shadow: 0 0 0 8px #5d887300; } 100% { box-shadow: 0 0 0 0 #5d887300; } }
-.meta-divider { color: #a2adb5; }
 .hero-landscape { position: relative; flex: 1; min-height: 360px; isolation: isolate; }
 .landscape-sun { position: absolute; right: 14%; top: 4%; width: 170px; height: 170px; border-radius: 50%; background: radial-gradient(#ecd9b4, #e7d7b8 60%, #e7d7b800 72%); opacity: .55; }
 .hero-landscape > .mountains { height: 48%; }
 .horse-art { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.horse-art-hero { top: -46px; -webkit-mask-image: linear-gradient(transparent, #000 10%); mask-image: linear-gradient(transparent, #000 10%); }
+.horse-art-hero { top: 0; }
 
 /* Mountains */
 .mountains { position: absolute; left: 0; bottom: -1px; width: 100%; overflow: hidden; perspective: 1000px; --mountain-x: 0; --mountain-y: 0; }
@@ -106,7 +102,6 @@ h2 { font-size: clamp(48px, 5.6vw, 84px); }
 /* Community */
 .community { display: grid; grid-template-columns: 1.15fr 1fr; gap: 90px; align-items: start; }
 .community-copy > p { max-width: 440px; margin-bottom: 30px; font-size: 17px; color: var(--muted); }
-.availability { display: block; margin-top: 14px; font-family: var(--mono); font-size: 12px; letter-spacing: .04em; color: var(--muted); }
 
 /* Sponsors */
 .sponsors { border-top: 1px solid var(--line); }
@@ -162,7 +157,7 @@ details > p { padding: 0 40px 28px 0; font-size: 16px; color: var(--muted); }
   .nav-links.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 20px; }
   .brand-wordmark { font-size: 26px; }
   .hero { min-height: 640px; }
-  .hero-actions, .event-meta { flex-wrap: wrap; }
+  .hero-actions { flex-wrap: wrap; }
   .section-wrap { padding: 56px 24px; }
   .footer-top, .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
