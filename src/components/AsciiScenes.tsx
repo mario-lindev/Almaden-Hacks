@@ -7,6 +7,33 @@ import { ridges } from "./Mountains";
 const small = () => 5;
 const gray = (ink: number) => `rgb(${Math.round(255 * (1 - ink))},${Math.round(255 * (1 - ink))},${Math.round(255 * (1 - ink))})`;
 
+/** A toothed gear turning at a constant speed for the hardware card. */
+export function Gear() {
+  return <AsciiCanvas label="A rotating ASCII gear" cell={small} lens={{ radius: 70, color: "#2d4faa" }} layers={(t, w, h) => [{
+    color: "#c4622d",
+    draw: s => {
+      const radius = Math.min(w, h) * 0.42;
+      s.translate(w / 2, h / 2);
+      s.rotate(t * Math.PI / 12);
+      s.beginPath();
+      for (let i = 0; i < 48; i++) {
+        const angle = i * Math.PI / 24;
+        const r = radius * (i % 4 < 2 ? 1 : 0.8);
+        const x = Math.cos(angle) * r, y = Math.sin(angle) * r;
+        if (i) s.lineTo(x, y); else s.moveTo(x, y);
+      }
+      s.closePath();
+      s.moveTo(radius * 0.32, 0);
+      s.arc(0, 0, radius * 0.32, 0, Math.PI * 2);
+      s.fillStyle = "#333";
+      s.fill("evenodd");
+      s.strokeStyle = "#000";
+      s.lineWidth = 3;
+      s.stroke();
+    },
+  }]} />;
+}
+
 /** The donut.c torus, lit from the upper left. */
 export function Donut() {
   return <AsciiCanvas label="A spinning ASCII torus" cell={small} lens={{ radius: 70, color: "#c4622d" }} layers={(t, w, h) => [{
