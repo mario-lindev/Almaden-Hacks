@@ -4,6 +4,7 @@ import Horses from "@/components/Horses";
 import EventActions from "@/components/EventActions";
 import Reveal from "@/components/Reveal";
 import Scramble from "@/components/Scramble";
+import Sponsors from "@/components/Sponsors";
 import { AsciiText, Constellation, Donut, Gear } from "@/components/AsciiScenes";
 
 const faqs = [
@@ -52,7 +53,7 @@ export default function Home() {
 
       <section className="sponsors section-wrap" id="sponsors">
         <div className="sponsor-heading"><Scramble lines={["Sponsors"]} /><p data-reveal>Support student software and hardware projects.</p></div>
-        <div className="sponsor-board" data-reveal><div className="sponsor-callout"><h3>Sponsor Almaden Hacks</h3><p>Become a founding sponsor of Almaden Hacks.</p><a className="button" href="https://hcb.hackclub.com/almaden-hacks" target="_blank" rel="noreferrer">Support Almaden Hacks <span aria-hidden="true">↗</span></a></div><div className="sponsor-side"><p>Event costs</p><p>Mentorship</p><p>Hardware and materials</p><small>Sponsor announcements coming soon.</small></div></div>
+        <Sponsors />
       </section>
 
       <section className="faq section-wrap" id="faq">
