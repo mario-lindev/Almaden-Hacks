@@ -72,7 +72,7 @@ export default function Home() {
       <a href="#top" className="footer-wordmark" aria-label="Almaden Hacks, back to top"><AsciiText text="Almaden Hacks" color="#dfe8df" lens="#f0c987" /></a>
       <div className="footer-top"><div><a href="#about">About</a><a href="#schedule">The day</a><a href="#sponsors">Sponsorship</a><a href="#faq">FAQ</a></div><a href="#top" className="back-top">Back to top ↑</a></div>
       <div className="footer-bottom"><span>Built with a little wild ambition in Almaden. Presented by Leland High School.</span><a href="https://hcb.hackclub.com/almaden-hacks" target="_blank" rel="noreferrer">Fiscally sponsored by HCB</a></div>
-      <div className="design-credit"><span>Website designed by <a href="https://rishithc.com" target="_blank" rel="noreferrer">Rishith</a></span><a href="https://github.com/rishith-c" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/" target="_blank" rel="noreferrer">LinkedIn</a></div>
+      <div className="design-credit"><span>Website designed by <a href="https://mariolin.com" target="_blank" rel="noreferrer">Mario Lin</a> and <a href="https://rishithc.com" target="_blank" rel="noreferrer">Rishith Chennupati</a></span><a href="https://github.com/rishith-c" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/" target="_blank" rel="noreferrer">LinkedIn</a></div>
     </footer>
   </>;
 }
