@@ -2,16 +2,22 @@ import Image from "next/image";
 
 const groups = [
   {
-    title: "Partners",
+    title: "Gold",
     sponsors: [
       { name: "YRI Fellowship", href: "https://www.yriscience.com/?ref=ALMADENHACKS", logo: "/sponsors/yri.png", description: "Research fellowship support", featured: true },
     ],
   },
   {
-    title: "Prize sponsors",
+    title: "Silver",
     sponsors: [
       { name: "Scrimba", href: "https://scrimba.com", logo: "/sponsors/scrimba.png", description: "One-year Pro subscriptions for winners", featured: false },
       { name: "Tumult", href: "https://tumult.com", logo: "/sponsors/tumult.gif", description: "Hype licenses for prizes", featured: false },
+    ],
+  },
+  {
+    title: "Bronze",
+    sponsors: [
+      { name: "AoPS", href: "https://artofproblemsolving.com", logo: "/sponsors/aops.svg", description: "Pending confirmation", featured: false },
     ],
   },
   {
