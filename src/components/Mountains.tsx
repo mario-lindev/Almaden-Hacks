@@ -10,8 +10,11 @@ export const ridges = [
 ];
 export default function Mountains({ className = "" }: { className?: string }) {
   const paths = useRef<Path2D[]>([]);
-  const colors = ["#a4b5c1", "#819ba7", "#5b7d80", "#355e5b"];
+  const colors = ["#739bb2", "#4f8e91", "#4e854e", "#28613e"];
   return <div className={`mountains ${className}`} aria-hidden="true">
+    <svg className="mountain-color" viewBox="0 0 1440 400" preserveAspectRatio="none">
+      {ridges.map((path, i) => <path key={path} d={path} fill={colors[i]} />)}
+    </svg>
     <AsciiCanvas label="Textured ASCII foothills" cell={w => w < 600 ? 3 : 4} fps={1} layers={(_t, w, h) => {
       if (!paths.current.length) paths.current = ridges.map(path => new Path2D(path));
       return paths.current.map((path, i) => ({
@@ -21,8 +24,8 @@ export default function Mountains({ className = "" }: { className?: string }) {
           s.save();
           s.clip(path);
           const shade = s.createLinearGradient(0, 50 + i * 65, 0, 420);
-          shade.addColorStop(0, "#777");
-          shade.addColorStop(1, "#ddd");
+          shade.addColorStop(0, "#555");
+          shade.addColorStop(1, "#aaa");
           s.fillStyle = shade;
           s.fillRect(0, 0, 1440, 400);
           // Fixed drainage lines and grain give the slopes relief without flickering.
