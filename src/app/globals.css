@@ -65,14 +65,14 @@ h2 { font-size: clamp(48px, 5.6vw, 84px); }
 .hero-description { max-width: 760px; margin: 16px auto 0; font-size: 18px; line-height: 1.5; color: #5b6b7c; }
 .hero-actions { display: flex; align-items: center; justify-content: center; gap: 30px; margin-top: 26px; }
 .hero-landscape { position: relative; flex: 1; min-height: 360px; isolation: isolate; }
-.hero-landscape > .mountains { height: 68%; }
+.hero-landscape > .mountains { height: 48%; }
 .horse-art { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
 .horse-art-hero { top: 0; }
 
 /* Mountains */
-.mountains { position: absolute; left: 0; bottom: -1px; width: 100%; overflow: hidden; -webkit-mask-image: linear-gradient(transparent, #000 16%); mask-image: linear-gradient(transparent, #000 16%); }
-.mountain-color { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .35; }
-.mountains > .ascii-canvas { position: relative; }
+.mountains { position: absolute; left: 0; bottom: -1px; width: 100%; overflow: hidden; perspective: 1000px; --mountain-x: 0; --mountain-y: 0; }
+.mountain-atmosphere { position: absolute; inset: 0; background: linear-gradient(transparent 15%, #e5ece9 75%); }
+.ridge { position: absolute; width: 108%; height: 100%; left: -4%; bottom: -1px; transform: translate(calc(var(--mountain-x) * var(--depth) * -6px), calc(var(--mountain-y) * var(--depth) * -2px)); transition: transform 900ms var(--ease); will-change: transform; }
 
 /* About */
 .about-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 90px; align-items: start; }
@@ -176,4 +176,5 @@ details > p { padding: 0 40px 28px 0; font-size: 16px; color: var(--muted); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   [data-reveal], [data-reveal] > * { opacity: 1 !important; transform: none !important; }
+  .ridge { transform: none; will-change: auto; }
 }
