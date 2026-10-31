@@ -66,7 +66,7 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
       frame = 0;
       if (disposed || !visible || document.hidden) return;
       if (motion) frame = requestAnimationFrame(draw);
-      if (last && now - last < 1000 / fps) return;
+      if (last && now - last < 1000 / fps - 0.5) return;
       last = now;
       if (!started) started = now;
       const t = motion ? (now - started) / 1000 : still;

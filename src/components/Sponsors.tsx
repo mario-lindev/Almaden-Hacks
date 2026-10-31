@@ -27,19 +27,12 @@ const groups: { title: string; backers: Backer[] }[] = [
       { name: ".xyz", href: "https://gen.xyz", logo: "/sponsors/xyz.svg", description: "Domain support subject to application approval", pending: true },
     ],
   },
-  {
-    title: "Tools & discounts",
-    backers: [
-      { name: "Browserbase", href: "https://www.browserbase.com", logo: "/sponsors/browserbase.svg", description: "Three-month Developer plan coupon offered" },
-      { name: "SunFounder", href: "https://www.sunfounder.com", logo: "/sponsors/sunfounder.jpg", description: "10% equipment purchase discount offered", layout: "wordmark" },
-      { name: "Devpost", href: "https://info.devpost.com", logo: "/sponsors/devpost.svg", description: "Free student hackathon platform access", layout: "wordmark" },
-    ],
-  },
+
 ];
 
 export default function Sponsors() {
   return <div className="backer-tiers">
-    <p className="backer-note">Pending offers still need final confirmation. Tools and discounts are listed separately from prize sponsorships.</p>
+    <p className="backer-note">Pending offers still need final confirmation.</p>
     {groups.map(group => <section className="backer-tier" aria-label={group.title} key={group.title}>
       <h3 className="backer-tier-title">{group.title}</h3>
       <ul className="backer-grid">
@@ -54,7 +47,6 @@ export default function Sponsors() {
           </a>
         </li>)}
       </ul>
-      {group.title === "Tools & discounts" && <p className="backer-terms">Browserbase requires a payment card. After three months, the plan costs $20/month plus usage overages. Overages can also be billed during the offer.</p>}
     </section>)}
     <div className="backer-invite"><p>Interested in sponsoring?</p><a className="text-link" href="https://hcb.hackclub.com/almaden-hacks" target="_blank" rel="noreferrer">Support Almaden Hacks <span aria-hidden="true">↗</span></a></div>
   </div>;

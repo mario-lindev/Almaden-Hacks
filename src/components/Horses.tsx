@@ -3,70 +3,111 @@
 import { useEffect, useState } from "react";
 import AsciiCanvas, { type AsciiLayer } from "./AsciiCanvas";
 
-/** Size and ground position are fractions of the canvas height; gait is cycles/s. */
-type Plane = { color: string; alpha: number; size: number; y: number; gait: number; count: number; offset: number };
+type Plane = { color: string; alpha: number; size: number; ground: number; gait: number; count: number; offset: number };
+type HorseScene = { draw: (plane: number, t: number, w: number, h: number) => HTMLCanvasElement; dispose: () => void };
 
-const HERDS: Record<"hero" | "closing", Plane[]> = {
-  hero: [
-    { color: "#8fa8b9", alpha: 0.65, size: 0.36, y: 0.45, gait: 1.15, count: 3, offset: 0.18 },
-    { color: "#537799", alpha: 0.85, size: 0.54, y: 0.68, gait: 1.35, count: 2, offset: 0.46 },
-    { color: "#244d87", alpha: 1, size: 0.76, y: 0.96, gait: 1.55, count: 2, offset: 0.14 },
-  ],
-  closing: [
-    { color: "#8fa8b5", alpha: 0.8, size: 0.36, y: 0.45, gait: 1.15, count: 3, offset: 0.3 },
-    { color: "#2f557a", alpha: 1, size: 0.76, y: 0.96, gait: 1.55, count: 2, offset: 0.7 },
-  ],
-};
+const planes: Plane[] = [
+  { color: "#8fa8b9", alpha: 0.65, size: 0.48, ground: 0.44, gait: 0.95, count: 3, offset: 0.2 },
+  { color: "#537799", alpha: 0.85, size: 0.72, ground: 0.69, gait: 1.05, count: 2, offset: 0.5 },
+  { color: "#244d87", alpha: 1, size: 1.02, ground: 0.96, gait: 1.15, count: 2, offset: 0.1 },
+];
 
-let sprite: Promise<HTMLImageElement> | null = null;
-const loadSprite = () => (sprite ??= new Promise(resolve => {
-  const image = new Image();
-  image.onload = () => resolve(image);
-  image.src = "/gallop.jpg";
-}));
+export default function Horses() {
+  const [horseScene, setHorseScene] = useState<HorseScene | null>(null);
 
-export default function Horses({ herd = "hero" }: { herd?: "hero" | "closing" }) {
-  const [image, setImage] = useState<HTMLImageElement | null>(null);
-  useEffect(() => { loadSprite().then(setImage); }, []);
-  const planes = HERDS[herd];
+  useEffect(() => {
+    let cancelled = false;
+    let cleanup: (() => void) | undefined;
 
-  if (!image) return <div className={`horse-art horse-art-${herd}`} />;
+    async function load() {
+      const [THREE, { GLTFLoader }] = await Promise.all([
+        import("three"),
+        import("three/addons/loaders/GLTFLoader.js"),
+      ]);
+      const gltf = await new GLTFLoader().loadAsync("/horse.glb");
+      if (cancelled) return;
 
-  const layers = (t: number, w: number, h: number): AsciiLayer[] => planes.map((plane, p) => ({
+      const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+      renderer.setPixelRatio(1);
+      renderer.setClearColor(0xffffff);
+      const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 1, 3000);
+      camera.position.set(0, 0, 1000);
+      const material = new THREE.MeshLambertMaterial({ color: 0x555555 });
+      const model = gltf.scene.children[0] as import("three").Mesh;
+      const scenes = planes.map(plane => {
+        const scene = new THREE.Scene();
+        scene.add(new THREE.AmbientLight(0xffffff, 1.1));
+        const key = new THREE.DirectionalLight(0xffffff, 2);
+        key.position.set(-200, 400, 500);
+        scene.add(key);
+        const horses = Array.from({ length: plane.count }, () => {
+          const mesh = model.clone();
+          mesh.material = material;
+          mesh.rotation.y = Math.PI / 2 - 0.12;
+          scene.add(mesh);
+          const mixer = new THREE.AnimationMixer(mesh);
+          mixer.clipAction(gltf.animations[0]).setDuration(1).play();
+          return { mesh, mixer };
+        });
+        return { scene, horses };
+      });
+
+      const resource: HorseScene = {
+        draw(p, t, w, h) {
+          const plane = planes[p];
+          const { scene, horses } = scenes[p];
+          // Render only at the character grid's resolution, not full screen resolution.
+          const rw = Math.ceil(w / 3), rh = Math.ceil(h / 4.8);
+          if (renderer.domElement.width !== rw || renderer.domElement.height !== rh) {
+            renderer.setSize(rw, rh, false);
+            camera.left = -w / 2; camera.right = w / 2;
+            camera.top = h / 2; camera.bottom = -h / 2;
+            camera.updateProjectionMatrix();
+          }
+          const size = Math.min(h * plane.size, w * 0.85);
+          const loop = w + size * 1.5;
+          horses.forEach(({ mesh, mixer }, n) => {
+            const gait = plane.gait * (1 + n * 0.025);
+            const cycle = t * gait + p * 0.29 + n * 0.41;
+            mixer.setTime(cycle);
+            mesh.scale.setScalar(size / 325);
+            const x = ((plane.offset + n / plane.count) * loop + t * size * gait * 0.48) % loop - size;
+            mesh.position.set(x - w / 2, h / 2 - h * plane.ground, 0);
+          });
+          renderer.render(scene, camera);
+          return renderer.domElement;
+        },
+        dispose() {
+          scenes.forEach(({ horses }) => horses.forEach(({ mixer }) => { mixer.stopAllAction(); mixer.uncacheRoot(mixer.getRoot()); }));
+          model.geometry.dispose();
+          const original = Array.isArray(model.material) ? model.material : [model.material];
+          original.forEach(m => m.dispose());
+          material.dispose();
+          renderer.dispose();
+          renderer.forceContextLoss();
+        },
+      };
+      cleanup = resource.dispose;
+      if (cancelled) resource.dispose(); else setHorseScene(resource);
+    }
+    void load();
+    return () => { cancelled = true; cleanup?.(); };
+  }, []);
+
+  if (!horseScene) return <div className="horse-art horse-art-hero" />;
+
+  const layers = (t: number, w: number, h: number): AsciiLayer[] => horseScene ? planes.map((plane, p) => ({
     color: plane.color,
     alpha: plane.alpha,
-    draw: s => {
-      const fw = image.width / 4, fh = image.height / 2;
-      const size = Math.min(h * plane.size, w * 0.74);
-      const loop = w + size * 1.4;
-      for (let n = 0; n < plane.count; n++) {
-        const gait = plane.gait * (1 + n * 0.035);
-        const cycle = t * gait + p * 0.31 + n * 0.43;
-        const step = Math.floor(cycle * 8) % 8;
-        const speed = size * gait * 0.42;
-        const x = ((plane.offset + n / plane.count) * loop + t * speed) % loop - size * 1.2;
-        const ground = h * plane.y;
-        const bob = Math.sin(cycle * Math.PI * 2) * size * 0.008;
+    draw: s => { s.drawImage(horseScene.draw(p, t, w, h), 0, 0, w, h); },
+  })) : [];
 
-        // Dust drifts behind the hooves, thinning as each particle rises.
-        for (let d = 0; d < 12; d++) {
-          const age = (cycle * 1.7 + d / 12) % 1;
-          s.fillStyle = `rgb(${Math.round(210 + age * 45)},${Math.round(210 + age * 45)},${Math.round(210 + age * 45)})`;
-          s.beginPath();
-          s.ellipse(x + size * (0.25 - age * 0.4), ground - size * (0.07 + age * 0.07), size * (0.008 + age * 0.015), size * 0.008, 0, 0, Math.PI * 2);
-          s.fill();
-        }
-        s.drawImage(image, (step % 4) * fw, Math.floor(step / 4) * fh, fw, fh, x, ground - size + bob, size, size);
-      }
-    },
-  }));
-
-  return <div className={`horse-art horse-art-${herd}`}>
+  return <div className="horse-art horse-art-hero">
     <AsciiCanvas
-      label={herd === "hero" ? "A herd of seven horses galloping across the foothills in animated blue ASCII" : "Horses galloping toward the finish in ASCII"}
+      label="Seven horses with continuously animated galloping legs, rendered in blue ASCII"
       layers={layers}
-      cell={w => (w < 600 ? 2.5 : w > 1900 ? 4 : 3)}
-      fps={30}
+      cell={w => w < 600 ? 3 : 4}
+      fps={60}
     />
   </div>;
 }
