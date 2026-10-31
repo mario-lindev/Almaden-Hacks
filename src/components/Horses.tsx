@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import AsciiCanvas, { type AsciiLayer } from "./AsciiCanvas";
 
 /** Size and ground position are fractions of the canvas height; gait is cycles/s. */
@@ -22,16 +22,12 @@ let sprite: Promise<HTMLImageElement> | null = null;
 const loadSprite = () => (sprite ??= new Promise(resolve => {
   const image = new Image();
   image.onload = () => resolve(image);
-  image.src = "/gallop.jpg";
+  image.src = "/gallop-motion.webp";
 }));
 
 export default function Horses({ herd = "hero" }: { herd?: "hero" | "closing" }) {
   const [image, setImage] = useState<HTMLImageElement | null>(null);
-  const blendCanvas = useRef<HTMLCanvasElement | null>(null);
-  useEffect(() => {
-    blendCanvas.current = document.createElement("canvas");
-    loadSprite().then(setImage);
-  }, []);
+  useEffect(() => { loadSprite().then(setImage); }, []);
   const planes = HERDS[herd];
 
   if (!image) return <div className={`horse-art horse-art-${herd}`} />;
@@ -40,34 +36,17 @@ export default function Horses({ herd = "hero" }: { herd?: "hero" | "closing" })
     color: plane.color,
     alpha: plane.alpha,
     draw: s => {
-      const fw = image.width / 4, fh = image.height / 2;
-      const buffer = blendCanvas.current;
-      const blendContext = buffer?.getContext("2d");
-      if (!buffer || !blendContext) return;
-      if (buffer.width !== Math.round(fw) || buffer.height !== Math.round(fh)) {
-        buffer.width = Math.round(fw); buffer.height = Math.round(fh);
-      }
+      const fw = image.width / 8, fh = image.height / 8;
       const size = Math.min(h * plane.size, w * 0.74);
       const loop = w + size * 1.4;
       for (let n = 0; n < plane.count; n++) {
         const gait = plane.gait * (1 + n * 0.035);
         const cycle = t * gait + p * 0.31 + n * 0.43;
-        const position = cycle * 8;
-        const step = Math.floor(position) % 8;
-        const next = (step + 1) % 8;
-        const blend = position - Math.floor(position);
+        const step = Math.floor(cycle * 64) % 64;
         const speed = size * gait * 0.24;
         const x = ((plane.offset + n / plane.count) * loop + t * speed) % loop - size * 1.2;
         const ground = h * plane.y;
-        const bob = Math.sin(cycle * Math.PI * 2) * size * 0.004;
-
-        // Blend neighboring poses before ASCII sampling to soften the eight-frame loop.
-        blendContext.globalAlpha = 1;
-        blendContext.drawImage(image, (step % 4) * fw, Math.floor(step / 4) * fh, fw, fh, 0, 0, buffer.width, buffer.height);
-        blendContext.globalAlpha = blend;
-        blendContext.drawImage(image, (next % 4) * fw, Math.floor(next / 4) * fh, fw, fh, 0, 0, buffer.width, buffer.height);
-        blendContext.globalAlpha = 1;
-        s.drawImage(buffer, x, ground - size + bob, size, size);
+        s.drawImage(image, (step % 8) * fw, Math.floor(step / 8) * fh, fw, fh, x, ground - size, size, size);
       }
     },
   }));
