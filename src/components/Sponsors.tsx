@@ -1,50 +1,61 @@
 import Image from "next/image";
 
-const groups = [
+type Backer = { name: string; href: string; logo: string; description: string; layout?: "featured" | "wordmark"; pending?: boolean };
+
+const groups: { title: string; backers: Backer[] }[] = [
   {
     title: "Gold",
-    sponsors: [
-      { name: "YRI Fellowship", href: "https://www.yriscience.com/?ref=ALMADENHACKS", logo: "/sponsors/yri.png", description: "Research fellowship support", featured: true },
+    backers: [
+      { name: "YRI Fellowship", href: "https://www.yriscience.com/?ref=ALMADENHACKS", logo: "/sponsors/yri.png", description: "Research fellowship support", layout: "featured" },
     ],
   },
   {
     title: "Silver",
-    sponsors: [
-      { name: "Scrimba", href: "https://scrimba.com", logo: "/sponsors/scrimba.png", description: "One-year Pro subscriptions for winners", featured: false },
-      { name: "Tumult", href: "https://tumult.com", logo: "/sponsors/tumult.gif", description: "Hype licenses for prizes", featured: false },
+    backers: [
+      { name: "Scrimba", href: "https://scrimba.com", logo: "/sponsors/scrimba.png", description: "One-year Pro subscriptions for winners" },
+      { name: "Tumult", href: "https://tumult.com", logo: "/sponsors/tumult.gif", description: "Hype licenses for prizes", layout: "wordmark" },
+      { name: "CodeCrafters", href: "https://codecrafters.io", logo: "/sponsors/codecrafters.svg", description: "VIP membership prize offer", pending: true },
+      { name: "Interview Cake", href: "https://www.interviewcake.com", logo: "/sponsors/interviewcake.png", description: "Up to 50 seven-day course licenses offered", pending: true },
     ],
   },
   {
     title: "Bronze",
-    sponsors: [
-      { name: "AoPS", href: "https://artofproblemsolving.com", logo: "/sponsors/aops.svg", description: "Pending confirmation", featured: false },
+    backers: [
+      { name: "Rosebud AI", href: "https://rosebud.ai", logo: "/sponsors/rosebud.png", description: "Participant or prize credits offered", pending: true },
+      { name: "InterviewBuddy", href: "https://interviewbuddy.net", logo: "/sponsors/interviewbuddy.svg", description: "Interview practice credits and discounts offered", layout: "wordmark", pending: true },
+      { name: "AoPS", href: "https://artofproblemsolving.com", logo: "/sponsors/aops.svg", description: "Product coupons under consideration", pending: true },
+      { name: ".xyz", href: "https://gen.xyz", logo: "/sponsors/xyz.svg", description: "Domain support subject to application approval", pending: true },
     ],
   },
   {
-    title: "Developer perks",
-    sponsors: [
-      { name: "Browserbase", href: "https://www.browserbase.com", logo: "/sponsors/browserbase.svg", description: "Developer plan discount offer", featured: false },
+    title: "Tools & discounts",
+    backers: [
+      { name: "Browserbase", href: "https://www.browserbase.com", logo: "/sponsors/browserbase.svg", description: "Three-month Developer plan coupon offered" },
+      { name: "SunFounder", href: "https://www.sunfounder.com", logo: "/sponsors/sunfounder.jpg", description: "10% equipment purchase discount offered", layout: "wordmark" },
+      { name: "Devpost", href: "https://info.devpost.com", logo: "/sponsors/devpost.svg", description: "Free student hackathon platform access", layout: "wordmark" },
     ],
   },
 ];
 
 export default function Sponsors() {
-  return <div className="sponsor-tiers">
-    {groups.map(group => <section className="sponsor-tier" aria-label={group.title} key={group.title}>
-      <h3 className="sponsor-tier-title">{group.title}</h3>
-      <ul className="sponsor-logos">
-        {group.sponsors.map(sponsor => <li key={sponsor.name}>
-          <a className={`sponsor-link${sponsor.featured ? " sponsor-link-featured" : ""}`} href={sponsor.href} target="_blank" rel="noreferrer" aria-label={`Visit ${sponsor.name}`}>
-            <div className={`sponsor-identity sponsor-identity-${sponsor.name === "Tumult" ? "tumult" : sponsor.featured ? "yri" : "icon"}`}>
-              <Image src={sponsor.logo} alt={sponsor.name} width={sponsor.featured ? 800 : sponsor.name === "Tumult" ? 220 : 256} height={sponsor.featured ? 800 : sponsor.name === "Tumult" ? 88 : 256} />
-              {!sponsor.featured && sponsor.name !== "Tumult" && <span aria-hidden="true">{sponsor.name}</span>}
+  return <div className="backer-tiers">
+    <p className="backer-note">Pending offers still need final confirmation. Tools and discounts are listed separately from prize sponsorships.</p>
+    {groups.map(group => <section className="backer-tier" aria-label={group.title} key={group.title}>
+      <h3 className="backer-tier-title">{group.title}</h3>
+      <ul className="backer-grid">
+        {group.backers.map(backer => <li key={backer.name}>
+          <a className={`backer-card${backer.layout === "featured" ? " backer-card-featured" : ""}`} href={backer.href} target="_blank" rel="noreferrer" aria-label={`Visit ${backer.name}`}>
+            <div className={`backer-identity backer-identity-${backer.layout ?? "icon"}`}>
+              <Image className={backer.name === "CodeCrafters" ? "backer-mark-dark" : undefined} src={backer.logo} alt={backer.name} width={backer.layout === "featured" ? 800 : 256} height={backer.layout === "featured" ? 800 : 256} />
+              {!backer.layout && <span aria-hidden="true">{backer.name}</span>}
             </div>
-            <span className="sponsor-description">{sponsor.description}<span aria-hidden="true">↗</span></span>
+            <span className="backer-description">{backer.description}<span aria-hidden="true">↗</span></span>
+            {backer.pending && <span className="backer-status">Pending confirmation</span>}
           </a>
         </li>)}
       </ul>
-      {group.title === "Developer perks" && <p className="sponsor-terms">Browserbase requires a payment card. Paid billing resumes after three months; usage overages may apply.</p>}
+      {group.title === "Tools & discounts" && <p className="backer-terms">Browserbase requires a payment card. After three months, the plan costs $20/month plus usage overages. Overages can also be billed during the offer.</p>}
     </section>)}
-    <div className="sponsor-invite"><p>Interested in sponsoring?</p><a className="text-link" href="https://hcb.hackclub.com/almaden-hacks" target="_blank" rel="noreferrer">Support Almaden Hacks <span aria-hidden="true">↗</span></a></div>
+    <div className="backer-invite"><p>Interested in sponsoring?</p><a className="text-link" href="https://hcb.hackclub.com/almaden-hacks" target="_blank" rel="noreferrer">Support Almaden Hacks <span aria-hidden="true">↗</span></a></div>
   </div>;
 }

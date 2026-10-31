@@ -52,7 +52,7 @@ export default function Home() {
       </section>
 
       <section className="sponsors section-wrap" id="sponsors">
-        <div className="sponsor-heading"><Scramble lines={["Sponsors"]} /><p data-reveal>Support student software and hardware projects.</p></div>
+        <div className="sponsor-heading"><Scramble lines={["Sponsors"]} /><p data-reveal>Prizes, tools, and support for Almaden Hacks.</p></div>
         <Sponsors />
       </section>
 
