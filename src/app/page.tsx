@@ -24,7 +24,7 @@ export default function Home() {
           <p className="hero-description">A high school hackathon for software and hardware projects in San Jose.</p>
           <div className="hero-actions"><EventActions /><a className="text-link" href="#about">About the event <span aria-hidden="true">↓</span></a></div>
         </div>
-        <div className="hero-landscape"><div className="landscape-sun" /><Mountains /><Horses /></div>
+        <div className="hero-landscape"><Mountains /><Horses /></div>
       </section>
 
       <section className="about section-wrap" id="about">

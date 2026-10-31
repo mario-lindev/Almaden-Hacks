@@ -8,13 +8,13 @@ type Plane = { color: string; alpha: number; size: number; y: number; gait: numb
 
 const HERDS: Record<"hero" | "closing", Plane[]> = {
   hero: [
-    { color: "#8fa8b9", alpha: 0.65, size: 0.36, y: 0.45, gait: 1.8, count: 3, offset: 0.18 },
-    { color: "#537799", alpha: 0.85, size: 0.54, y: 0.68, gait: 1.9, count: 2, offset: 0.46 },
-    { color: "#244d87", alpha: 1, size: 0.76, y: 0.96, gait: 2.0, count: 2, offset: 0.14 },
+    { color: "#8fa8b9", alpha: 0.65, size: 0.55, y: 0.55, gait: 1.8, count: 1, offset: 0.22 },
+    { color: "#537799", alpha: 0.85, size: 0.8, y: 0.78, gait: 1.9, count: 1, offset: 0.46 },
+    { color: "#244d87", alpha: 1, size: 1.08, y: 1.02, gait: 2.0, count: 1, offset: 0.65 },
   ],
   closing: [
-    { color: "#8fa8b5", alpha: 0.8, size: 0.36, y: 0.45, gait: 1.8, count: 3, offset: 0.3 },
-    { color: "#2f557a", alpha: 1, size: 0.76, y: 0.96, gait: 2.0, count: 2, offset: 0.7 },
+    { color: "#8fa8b5", alpha: 0.8, size: 0.55, y: 0.55, gait: 1.8, count: 1, offset: 0.3 },
+    { color: "#2f557a", alpha: 1, size: 1.08, y: 1.02, gait: 2.0, count: 1, offset: 0.7 },
   ],
 };
 
@@ -37,7 +37,7 @@ export default function Horses({ herd = "hero" }: { herd?: "hero" | "closing" })
     alpha: plane.alpha,
     draw: s => {
       const fw = image.width / 8, fh = image.height / 8;
-      const size = Math.min(h * plane.size, w * 0.74);
+      const size = Math.min(h * plane.size, w * 0.95);
       const loop = w + size * 1.4;
       for (let n = 0; n < plane.count; n++) {
         const gait = plane.gait * (1 + n * 0.035);
@@ -53,7 +53,7 @@ export default function Horses({ herd = "hero" }: { herd?: "hero" | "closing" })
 
   return <div className={`horse-art horse-art-${herd}`}>
     <AsciiCanvas
-      label={herd === "hero" ? "A herd of seven horses galloping across the foothills in animated blue ASCII" : "Horses galloping toward the finish in ASCII"}
+      label={herd === "hero" ? "Three large horses galloping across the foothills in animated blue ASCII" : "Horses galloping toward the finish in ASCII"}
       layers={layers}
       cell={w => (w < 600 ? 2.5 : w > 1900 ? 4 : 3)}
       fps={60}
