@@ -1,6 +1,0 @@
-Horse model and gallop animation by Mirada, from ROME / 3 Dreams of Black.
-Distributed in the Three.js examples as models/gltf/Horse.glb.
-Source: https://threejs.org/examples/webgl_morphtargets_horse.html
-Model: https://threejs.org/examples/models/gltf/Horse.glb
-Creator: https://mirada.com/
-Project: https://rome.mrdoob.com/
