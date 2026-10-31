@@ -8,13 +8,13 @@ type Plane = { color: string; alpha: number; size: number; y: number; gait: numb
 
 const HERDS: Record<"hero" | "closing", Plane[]> = {
   hero: [
-    { color: "#8fa8b9", alpha: 0.65, size: 0.36, y: 0.45, gait: 1.4, count: 3, offset: 0.18 },
-    { color: "#537799", alpha: 0.85, size: 0.54, y: 0.68, gait: 1.5, count: 2, offset: 0.46 },
-    { color: "#244d87", alpha: 1, size: 0.76, y: 0.96, gait: 1.6, count: 2, offset: 0.14 },
+    { color: "#8fa8b9", alpha: 0.65, size: 0.36, y: 0.45, gait: 1.8, count: 3, offset: 0.18 },
+    { color: "#537799", alpha: 0.85, size: 0.54, y: 0.68, gait: 1.9, count: 2, offset: 0.46 },
+    { color: "#244d87", alpha: 1, size: 0.76, y: 0.96, gait: 2.0, count: 2, offset: 0.14 },
   ],
   closing: [
-    { color: "#8fa8b5", alpha: 0.8, size: 0.36, y: 0.45, gait: 1.4, count: 3, offset: 0.3 },
-    { color: "#2f557a", alpha: 1, size: 0.76, y: 0.96, gait: 1.6, count: 2, offset: 0.7 },
+    { color: "#8fa8b5", alpha: 0.8, size: 0.36, y: 0.45, gait: 1.8, count: 3, offset: 0.3 },
+    { color: "#2f557a", alpha: 1, size: 0.76, y: 0.96, gait: 2.0, count: 2, offset: 0.7 },
   ],
 };
 
@@ -43,7 +43,7 @@ export default function Horses({ herd = "hero" }: { herd?: "hero" | "closing" })
         const gait = plane.gait * (1 + n * 0.035);
         const cycle = t * gait + p * 0.31 + n * 0.43;
         const step = Math.floor(cycle * 64) % 64;
-        const speed = size * gait * 0.24;
+        const speed = size * gait * 0.65;
         const x = ((plane.offset + n / plane.count) * loop + t * speed) % loop - size * 1.2;
         const ground = h * plane.y;
         s.drawImage(image, (step % 8) * fw, Math.floor(step / 8) * fh, fw, fh, x, ground - size, size, size);
