@@ -51,7 +51,7 @@ export default function Sponsors() {
         {group.backers.map(backer => <li key={backer.name}>
           <a className={`backer-card${backer.layout === "featured" ? " backer-card-featured" : ""}`} href={backer.href} target="_blank" rel="noreferrer" aria-label={`Visit ${backer.name}`}>
             <div className={`backer-identity backer-identity-${backer.layout ?? "icon"}`}>
-              <Image className={backer.name === "CodeCrafters" ? "backer-mark-dark" : undefined} src={backer.logo} alt={backer.name} width={backer.layout === "featured" ? 800 : 256} height={backer.layout === "featured" ? 800 : 256} />
+              <Image className={backer.name === "CodeCrafters" ? "backer-mark-dark" : undefined} src={backer.logo} alt={backer.name} loading="eager" width={backer.layout === "featured" ? 800 : 256} height={backer.layout === "featured" ? 800 : 256} />
               {!backer.layout && <span aria-hidden="true">{backer.name}</span>}
             </div>
             <span className="backer-description">{backer.description}<span aria-hidden="true">↗</span></span>
