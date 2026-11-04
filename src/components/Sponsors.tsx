@@ -7,6 +7,7 @@ const groups: { title: string; backers: Backer[] }[] = [
     title: "Gold",
     backers: [
       { name: "YRI Fellowship", href: "https://www.yriscience.com/?ref=ALMADENHACKS", logo: "/sponsors/yri.png", description: "Research fellowship support", layout: "featured" },
+      { name: "ElevenLabs", href: "https://elevenlabs.io", logo: "/sponsors/elevenlabs.svg", description: "One free month of Creator for every participant, plus Pro and Scale plans for winners", layout: "wordmark" },
     ],
   },
   {
@@ -21,11 +22,10 @@ const groups: { title: string; backers: Backer[] }[] = [
   {
     title: "Bronze",
     backers: [
-      { name: "ElevenLabs", href: "https://elevenlabs.io", logo: "/sponsors/elevenlabs.svg", description: "Voice AI tools", layout: "wordmark" },
-      { name: "iFixit", href: "https://www.ifixit.com", logo: "/sponsors/ifixit.svg", description: "Hardware repair tools and guides", layout: "wordmark" },
+      { name: "iFixit", href: "https://www.ifixit.com", logo: "/sponsors/ifixit.svg", description: "Tool kits and prizes under discussion", layout: "wordmark", pending: true },
       { name: "Rosebud AI", href: "https://rosebud.ai", logo: "/sponsors/rosebud.png", description: "Participant or prize credits offered", pending: true },
       { name: "InterviewBuddy", href: "https://interviewbuddy.net", logo: "/sponsors/interviewbuddy.svg", description: "Interview practice credits and discounts offered", layout: "wordmark", pending: true },
-      { name: "AoPS", href: "https://artofproblemsolving.com", logo: "/sponsors/aops.svg", description: "Product coupons under consideration", pending: true },
+      { name: "AoPS", href: "https://artofproblemsolving.com", logo: "/sponsors/aops.svg", description: "Product coupons under consideration", layout: "wordmark", pending: true },
       { name: ".xyz", href: "https://gen.xyz", logo: "/sponsors/xyz.svg", description: "Domain support subject to application approval", pending: true },
     ],
   },
