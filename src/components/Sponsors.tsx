@@ -18,15 +18,15 @@ const groups: { title: string; backers: Backer[] }[] = [
       { name: "Hack Club", href: "https://hackclub.com", logo: "/marks/hackclub.svg", description: "Fiscal sponsorship through HCB" },
       { name: "n8n", href: "https://n8n.io", logo: "/marks/n8n.svg", description: "Confirmed sponsor", layout: "wordmark" },
       { name: "CodeCrafters", href: "https://codecrafters.io", logo: "/marks/codecrafters.svg", description: "VIP membership prize offer", pending: true },
-      { name: "Interview Cake", href: "https://www.interviewcake.com", logo: "/marks/interviewcake.png", description: "Up to 50 seven-day course licenses offered", pending: true },
+      { name: "Interview Cake", href: "https://www.interviewcake.com", logo: "/marks/interviewcake.png", description: "Up to 50 seven-day course licenses" },
     ],
   },
   {
     title: "Bronze",
     backers: [
       { name: "iFixit", href: "https://www.ifixit.com", logo: "/marks/ifixit.svg", description: "Tool kits and prizes under discussion", layout: "wordmark", pending: true },
-      { name: "Rosebud AI", href: "https://rosebud.ai", logo: "/marks/rosebud.png", description: "Participant or prize credits offered", pending: true },
-      { name: "InterviewBuddy", href: "https://interviewbuddy.net", logo: "/marks/interviewbuddy.svg", description: "Interview practice credits and discounts offered", layout: "wordmark", pending: true },
+      { name: "Rosebud AI", href: "https://rosebud.ai", logo: "/marks/rosebud.png", description: "Participant or prize credits" },
+      { name: "InterviewBuddy", href: "https://interviewbuddy.net", logo: "/marks/interviewbuddy.svg", description: "Interview practice credits and discounts", layout: "wordmark" },
     ],
   },
 
