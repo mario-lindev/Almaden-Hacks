@@ -15,6 +15,8 @@ const groups: { title: string; backers: Backer[] }[] = [
     backers: [
       { name: "Scrimba", href: "https://scrimba.com", logo: "/sponsors/scrimba.png", description: "One-year Pro subscriptions for winners" },
       { name: "Tumult", href: "https://tumult.com", logo: "/sponsors/tumult.gif", description: "Hype licenses for prizes", layout: "wordmark" },
+      { name: "Hack Club", href: "https://hackclub.com", logo: "/sponsors/hackclub.svg", description: "Fiscal sponsorship through HCB" },
+      { name: "n8n", href: "https://n8n.io", logo: "/sponsors/n8n.svg", description: "Confirmed sponsor", layout: "wordmark" },
       { name: "CodeCrafters", href: "https://codecrafters.io", logo: "/sponsors/codecrafters.svg", description: "VIP membership prize offer", pending: true },
       { name: "Interview Cake", href: "https://www.interviewcake.com", logo: "/sponsors/interviewcake.png", description: "Up to 50 seven-day course licenses offered", pending: true },
     ],
@@ -22,11 +24,19 @@ const groups: { title: string; backers: Backer[] }[] = [
   {
     title: "Bronze",
     backers: [
+      { name: "Browserbase", href: "https://www.browserbase.com", logo: "/sponsors/browserbase.svg", description: "Three-month Developer plan coupon offered. Payment card required." },
       { name: "iFixit", href: "https://www.ifixit.com", logo: "/sponsors/ifixit.svg", description: "Tool kits and prizes under discussion", layout: "wordmark", pending: true },
       { name: "Rosebud AI", href: "https://rosebud.ai", logo: "/sponsors/rosebud.png", description: "Participant or prize credits offered", pending: true },
       { name: "InterviewBuddy", href: "https://interviewbuddy.net", logo: "/sponsors/interviewbuddy.svg", description: "Interview practice credits and discounts offered", layout: "wordmark", pending: true },
       { name: "AoPS", href: "https://artofproblemsolving.com", logo: "/sponsors/aops.svg", description: "Product coupons under consideration", layout: "wordmark", pending: true },
       { name: ".xyz", href: "https://gen.xyz", logo: "/sponsors/xyz.svg", description: "Domain support subject to application approval", pending: true },
+      { name: "Adobe", href: "https://www.adobe.com", logo: "/sponsors/adobe.svg", description: "Support under discussion", layout: "wordmark", pending: true },
+      { name: "CodeRabbit", href: "https://www.coderabbit.ai", logo: "/sponsors/coderabbit.svg", description: "Support under discussion", layout: "wordmark", pending: true },
+      { name: "Firecrawl", href: "https://www.firecrawl.dev", logo: "/sponsors/firecrawl.svg", description: "Support under discussion", layout: "wordmark", pending: true },
+      { name: "Major League Hacking", href: "https://www.mlh.com", logo: "/sponsors/mlh.svg", description: "Support under discussion", layout: "wordmark", pending: true },
+      { name: "NordPass", href: "https://nordpass.com", logo: "/sponsors/nordpass.svg", description: "Support under discussion", pending: true },
+      { name: "Retell AI", href: "https://www.retellai.com", logo: "/sponsors/retell.svg", description: "Support under discussion", layout: "wordmark", pending: true },
+      { name: "Speak", href: "https://www.speak.com", logo: "/sponsors/speak.svg", description: "Support under discussion", layout: "wordmark", pending: true },
     ],
   },
 
