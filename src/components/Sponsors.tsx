@@ -27,8 +27,6 @@ const groups: { title: string; backers: Backer[] }[] = [
       { name: "iFixit", href: "https://www.ifixit.com", logo: "/marks/ifixit.svg", description: "Tool kits and prizes under discussion", layout: "wordmark", pending: true },
       { name: "Rosebud AI", href: "https://rosebud.ai", logo: "/marks/rosebud.png", description: "Participant or prize credits offered", pending: true },
       { name: "InterviewBuddy", href: "https://interviewbuddy.net", logo: "/marks/interviewbuddy.svg", description: "Interview practice credits and discounts offered", layout: "wordmark", pending: true },
-      { name: "AoPS", href: "https://artofproblemsolving.com", logo: "/marks/aops.svg", description: "Product coupons under consideration", layout: "wordmark", pending: true },
-      { name: ".xyz", href: "https://gen.xyz", logo: "/marks/xyz.svg", description: "Domain support subject to application approval", pending: true },
     ],
   },
 
