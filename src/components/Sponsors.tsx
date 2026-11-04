@@ -24,19 +24,11 @@ const groups: { title: string; backers: Backer[] }[] = [
   {
     title: "Bronze",
     backers: [
-      { name: "Browserbase", href: "https://www.browserbase.com", logo: "/marks/browserbase.svg", description: "Three-month Developer plan coupon offered. Payment card required." },
       { name: "iFixit", href: "https://www.ifixit.com", logo: "/marks/ifixit.svg", description: "Tool kits and prizes under discussion", layout: "wordmark", pending: true },
       { name: "Rosebud AI", href: "https://rosebud.ai", logo: "/marks/rosebud.png", description: "Participant or prize credits offered", pending: true },
       { name: "InterviewBuddy", href: "https://interviewbuddy.net", logo: "/marks/interviewbuddy.svg", description: "Interview practice credits and discounts offered", layout: "wordmark", pending: true },
       { name: "AoPS", href: "https://artofproblemsolving.com", logo: "/marks/aops.svg", description: "Product coupons under consideration", layout: "wordmark", pending: true },
       { name: ".xyz", href: "https://gen.xyz", logo: "/marks/xyz.svg", description: "Domain support subject to application approval", pending: true },
-      { name: "Adobe", href: "https://www.adobe.com", logo: "/marks/adobe.svg", description: "Support under discussion", layout: "wordmark", pending: true },
-      { name: "CodeRabbit", href: "https://www.coderabbit.ai", logo: "/marks/coderabbit.svg", description: "Support under discussion", layout: "wordmark", pending: true },
-      { name: "Firecrawl", href: "https://www.firecrawl.dev", logo: "/marks/firecrawl.svg", description: "Support under discussion", layout: "wordmark", pending: true },
-      { name: "Major League Hacking", href: "https://www.mlh.com", logo: "/marks/mlh.svg", description: "Support under discussion", layout: "wordmark", pending: true },
-      { name: "NordPass", href: "https://nordpass.com", logo: "/marks/nordpass.svg", description: "Support under discussion", pending: true },
-      { name: "Retell AI", href: "https://www.retellai.com", logo: "/marks/retell.svg", description: "Support under discussion", layout: "wordmark", pending: true },
-      { name: "Speak", href: "https://www.speak.com", logo: "/marks/speak.svg", description: "Support under discussion", layout: "wordmark", pending: true },
     ],
   },
 
