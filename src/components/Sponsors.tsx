@@ -17,7 +17,7 @@ const groups: { title: string; backers: Backer[] }[] = [
       { name: "Tumult", href: "https://tumult.com", logo: "/marks/tumult.gif", description: "Hype licenses for prizes", layout: "wordmark" },
       { name: "Hack Club", href: "https://hackclub.com", logo: "/marks/hackclub.svg", description: "Fiscal sponsorship through HCB" },
       { name: "n8n", href: "https://n8n.io", logo: "/marks/n8n.svg", description: "Confirmed sponsor", layout: "wordmark" },
-      { name: "CodeCrafters", href: "https://codecrafters.io", logo: "/marks/codecrafters.svg", description: "VIP membership prize offer", pending: true },
+      { name: "CodeCrafters", href: "https://codecrafters.io", logo: "/marks/codecrafters.svg", description: "VIP membership prizes" },
       { name: "Interview Cake", href: "https://www.interviewcake.com", logo: "/marks/interviewcake.png", description: "Up to 50 seven-day course licenses" },
     ],
   },
