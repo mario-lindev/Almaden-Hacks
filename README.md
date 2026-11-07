@@ -1,2 +1,2 @@
-# almaden-hacks2027
+# almaden-hacks
 Repository for official hackathon website of Almaden Hacks.
