@@ -24,6 +24,8 @@ const groups: { title: string; backers: Backer[] }[] = [
   {
     title: "Bronze",
     backers: [
+      { name: "PCBWay", href: "https://www.pcbway.com", logo: "/marks/pcbway.svg", description: "PCB manufacturing offered; quantities and challenge details being finalized", layout: "wordmark", pending: true },
+      { name: "SunFounder", href: "https://www.sunfounder.com", logo: "/marks/sunfounder.png", description: "10% attendee discount on most products with code LOYAL10" },
       { name: "iFixit", href: "https://www.ifixit.com", logo: "/marks/ifixit.svg", description: "Tool kits and prizes under discussion", layout: "wordmark", pending: true },
       { name: "Rosebud AI", href: "https://rosebud.ai", logo: "/marks/rosebud.png", description: "Participant or prize credits" },
       { name: "InterviewBuddy", href: "https://interviewbuddy.net", logo: "/marks/interviewbuddy.svg", description: "Interview practice credits and discounts", layout: "wordmark" },
