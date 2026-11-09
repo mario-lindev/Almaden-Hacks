@@ -27,7 +27,7 @@ const groups: { title: string; backers: Backer[] }[] = [
     title: "Bronze",
     backers: [
       { name: "Doorstop Education", href: "https://doorstopeducation.org", logo: "/marks/doorstop.svg", description: "Partnership under discussion", pending: true },
-      { name: "SunFounder", href: "https://www.sunfounder.com", logo: "/marks/sunfounder.png", description: "10% attendee discount on most products with code LOYAL10" },
+      { name: "SunFounder", href: "https://www.sunfounder.com", logo: "/marks/sunfounder.png", description: "10% attendee discount on most products" },
       { name: "Rosebud AI", href: "https://rosebud.ai", logo: "/marks/rosebud.png", description: "Participant or prize credits" },
       { name: "InterviewBuddy", href: "https://interviewbuddy.net", logo: "/marks/interviewbuddy.svg", description: "Interview practice credits and discounts", layout: "wordmark" },
     ],
