@@ -13,8 +13,8 @@ const groups: { title: string; backers: Backer[] }[] = [
   {
     title: "Silver",
     backers: [
-      { name: "PCBWay", href: "https://www.pcbway.com", logo: "/marks/pcbway.svg", description: "PCB manufacturing offered; quantities and challenge details being finalized", layout: "wordmark", pending: true },
-      { name: "iFixit", href: "https://www.ifixit.com", logo: "/marks/ifixit.svg", description: "Tool kits and prizes under discussion", layout: "wordmark", pending: true },
+      { name: "PCBWay", href: "https://www.pcbway.com", logo: "/marks/pcbway.svg", description: "50–60 PCBs for the soldering challenge", layout: "wordmark" },
+      { name: "iFixit", href: "https://www.ifixit.com", logo: "/marks/ifixit.svg", description: "Mako and Pro Tech toolkits for teams and prizes", layout: "wordmark" },
       { name: "Scrimba", href: "https://scrimba.com", logo: "/marks/scrimba.png", description: "One-year Pro subscriptions for winners" },
       { name: "Tumult", href: "https://tumult.com", logo: "/marks/tumult.gif", description: "Hype licenses for prizes", layout: "wordmark" },
       { name: "Hack Club", href: "https://hackclub.com", logo: "/marks/hackclub.svg", description: "Fiscal sponsorship through HCB" },
