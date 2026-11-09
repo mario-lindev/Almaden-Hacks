@@ -13,6 +13,8 @@ const groups: { title: string; backers: Backer[] }[] = [
   {
     title: "Silver",
     backers: [
+      { name: "PCBWay", href: "https://www.pcbway.com", logo: "/marks/pcbway.svg", description: "PCB manufacturing offered; quantities and challenge details being finalized", layout: "wordmark", pending: true },
+      { name: "iFixit", href: "https://www.ifixit.com", logo: "/marks/ifixit.svg", description: "Tool kits and prizes under discussion", layout: "wordmark", pending: true },
       { name: "Scrimba", href: "https://scrimba.com", logo: "/marks/scrimba.png", description: "One-year Pro subscriptions for winners" },
       { name: "Tumult", href: "https://tumult.com", logo: "/marks/tumult.gif", description: "Hype licenses for prizes", layout: "wordmark" },
       { name: "Hack Club", href: "https://hackclub.com", logo: "/marks/hackclub.svg", description: "Fiscal sponsorship through HCB" },
@@ -24,9 +26,8 @@ const groups: { title: string; backers: Backer[] }[] = [
   {
     title: "Bronze",
     backers: [
-      { name: "PCBWay", href: "https://www.pcbway.com", logo: "/marks/pcbway.svg", description: "PCB manufacturing offered; quantities and challenge details being finalized", layout: "wordmark", pending: true },
+      { name: "Doorstop Education", href: "https://doorstopeducation.org", logo: "/marks/doorstop.svg", description: "Partnership under discussion", pending: true },
       { name: "SunFounder", href: "https://www.sunfounder.com", logo: "/marks/sunfounder.png", description: "10% attendee discount on most products with code LOYAL10" },
-      { name: "iFixit", href: "https://www.ifixit.com", logo: "/marks/ifixit.svg", description: "Tool kits and prizes under discussion", layout: "wordmark", pending: true },
       { name: "Rosebud AI", href: "https://rosebud.ai", logo: "/marks/rosebud.png", description: "Participant or prize credits" },
       { name: "InterviewBuddy", href: "https://interviewbuddy.net", logo: "/marks/interviewbuddy.svg", description: "Interview practice credits and discounts", layout: "wordmark" },
     ],
