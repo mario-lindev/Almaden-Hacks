@@ -21,7 +21,7 @@ export default function Home() {
       <section className="hero" id="top" aria-labelledby="hero-title">
         <picture>
           <source media="(max-width: 800px)" srcSet="/art/almaden-mobile.webp" />
-          <Image className="hero-backdrop" src="/art/almaden-scene.webp" alt="" fill priority sizes="100vw" />
+          <Image className="hero-backdrop" src="/art/almaden-scene-soft-sky.webp" alt="" fill priority sizes="100vw" />
         </picture>
         <div className="hero-copy">
           <div className="hero-title-lockup"><h1 id="hero-title" aria-label="Almaden Hacks">Almaden<br /><span className="hero-last-line">Hacks<span className="hero-landscape" aria-hidden="true"><Horses animated={false} /></span></span></h1></div>

@@ -14,7 +14,15 @@ const NAV_LINKS = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -28,7 +36,7 @@ export default function Nav() {
   }, [open]);
 
   return (
-    <header className={styles.header}>
+    <header className={styles.header} data-scrolled={scrolled}>
       <a href="#top" className={styles.brand} aria-label="Almaden Hacks home" onClick={() => setOpen(false)}>
         Almaden Hacks
       </a>

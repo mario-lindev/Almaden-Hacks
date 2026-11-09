@@ -1,28 +1,29 @@
 .header {
-  --nav-surface: rgba(255, 253, 247, .92);
-  --nav-text: #1c261f;
-  --nav-border: rgba(34, 47, 38, .14);
+  --nav-surface: rgba(193, 214, 239, .85);
+  --nav-brand-surface: rgba(169, 195, 225, .48);
+  --nav-text: #172230;
+  --nav-border: rgba(97, 122, 151, .25);
   --nav-hover: rgba(34, 47, 38, .06);
-  --nav-button: #202922;
-  --nav-button-hover: #354638;
+  --nav-button: #24282e;
+  --nav-button-hover: #39414b;
   --nav-button-text: #fffdf7;
   position: fixed;
   z-index: 30;
-  top: 22px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 20px;
   width: max-content;
   max-width: calc(100% - 40px);
-  padding: 8px 9px 8px 22px;
+  padding: 8px 9px;
   border: 1px solid var(--nav-border);
-  border-radius: 14px;
+  border-radius: 12px;
   background: var(--nav-surface);
   color: var(--nav-text);
-  box-shadow: 0 4px 22px rgba(26, 42, 29, .07);
+  box-shadow: 0 3px 16px rgba(37, 60, 88, .08);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
@@ -31,6 +32,9 @@
   display: inline-flex;
   align-items: center;
   min-height: 44px;
+  padding: 0 12px;
+  border-radius: 7px;
+  background: var(--nav-brand-surface);
   white-space: nowrap;
   font-family: var(--serif);
   font-size: 29px;
@@ -62,7 +66,7 @@
   min-height: 44px;
   margin-left: 5px;
   padding: 10px 18px;
-  border-radius: 8px;
+  border-radius: 7px;
   background: var(--nav-button);
   color: var(--nav-button-text);
   font-family: var(--sans);
@@ -75,7 +79,7 @@
 .menuButton { display: none; }
 
 @media (max-width: 860px) {
-  .header { top: 14px; width: calc(100% - 32px); max-width: 560px; gap: 16px; padding: 8px 10px 8px 18px; }
+  .header { top: 16px; width: calc(100% - 32px); max-width: 560px; gap: 16px; padding: 8px; }
   .brand { font-size: 28px; }
   .menuButton {
     display: inline-flex;
@@ -105,7 +109,7 @@
     gap: 2px;
     padding: 12px;
     border: 1px solid var(--nav-border);
-    border-radius: 14px;
+    border-radius: 12px;
     background: var(--nav-surface);
     box-shadow: 0 10px 30px rgba(26, 42, 29, .1);
     backdrop-filter: blur(18px);
@@ -119,3 +123,5 @@
 @media (prefers-reduced-motion: reduce) {
   .link, .register { transition: none; }
 }
+
+.header[data-scrolled="true"] { --nav-surface: rgba(250, 251, 252, .94); top: 16px; }
