@@ -21,7 +21,7 @@ export default function Clock() {
   }, []);
   const started = remaining?.every(value => value === 0);
   return <div className="countdown" role="group" aria-label="Countdown to June 5, 2027 at 8 AM Pacific">
-    <p className="countdown-label">{started ? "The wait is over. Let’s build." : "Meet you in the valley in"}</p>
+    {started && <p className="countdown-status">The event has started.</p>}
     <div className="countdown-units" aria-live="off">
       {["Days", "Hours", "Minutes", "Seconds"].map((label, i) => <div className="countdown-unit" key={label}>
         <span className="countdown-number">{remaining ? String(remaining[i]).padStart(2, "0") : "––"}</span>

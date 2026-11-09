@@ -1,18 +1,8 @@
 import type { Metadata } from "next";
-import Script from "next/script";
-import { Inter, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-// Inter handles the UI, Geist Mono the countdown, and Instrument Serif
-// the event identity and headings.
-const sans = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
-
+// Logo-inspired serif headings paired with the Luma event’s Roc Grotesk.
 const serif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
@@ -49,8 +39,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable} ${serif.variable}`}>
-      <body>{children}<Script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js" strategy="afterInteractive" /></body>
+    <html lang="en" className={serif.variable}>
+      <head>
+        <link rel="stylesheet" href="https://luma.com/fonts/rocgrotesk.css" />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
