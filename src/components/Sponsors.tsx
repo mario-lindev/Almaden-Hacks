@@ -26,13 +26,18 @@ const groups: { title: string; backers: Backer[] }[] = [
   {
     title: "Bronze",
     backers: [
-      { name: "Los Gatos Meats & Smokehouse", href: "https://www.losgatosmeats.com", logo: "/marks/losgatos.png", description: "Sandwich catering and lunch support under discussion", pending: true },
-      { name: "TOGO’S", href: "https://togos.com", logo: "/marks/togos.png", description: "Sandwich catering inquiry; referred to a local owner", pending: true },
-      { name: "In-N-Out Burger", href: "https://www.in-n-out.com", logo: "/marks/innout.svg", description: "Fundraising bundles inquiry; application requested", pending: true },
       { name: "Doorstop Education", href: "https://doorstopeducation.org", logo: "/marks/doorstop.svg", description: "Partnership under discussion", pending: true },
       { name: "SunFounder", href: "https://www.sunfounder.com", logo: "/marks/sunfounder.png", description: "10% attendee discount on most products with code LOYAL10" },
       { name: "Rosebud AI", href: "https://rosebud.ai", logo: "/marks/rosebud.png", description: "Participant or prize credits" },
       { name: "InterviewBuddy", href: "https://interviewbuddy.net", logo: "/marks/interviewbuddy.svg", description: "Interview practice credits and discounts", layout: "wordmark" },
+    ],
+  },
+  {
+    title: "Food & Catering",
+    backers: [
+      { name: "Los Gatos Meats & Smokehouse", href: "https://www.losgatosmeats.com", logo: "/marks/losgatos.png", description: "Sandwich catering and lunch support under discussion", pending: true },
+      { name: "TOGO’S", href: "https://togos.com", logo: "/marks/togos.png", description: "Sandwich catering inquiry; referred to a local owner", pending: true },
+      { name: "In-N-Out Burger", href: "https://www.in-n-out.com", logo: "/marks/innout.svg", description: "Fundraising bundles inquiry; application requested", pending: true },
     ],
   },
 
