@@ -3,9 +3,8 @@ import Script from "next/script";
 import { Inter, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-// Same three faces as rishithc.com: a neutral grotesque for the UI, a mono
-// for labels and facts, and Instrument Serif for the words that carry the
-// identity.
+// Inter carries the bold event identity; mono handles the countdown and
+// event date, with Instrument Serif reserved for editorial accents.
 const sans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -23,10 +22,10 @@ const serif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://almadenhacks.vercel.app"),
+  metadataBase: new URL("https://almadenhacks.com"),
   title: "Almaden Hacks",
   description:
-    "A student-built high school hackathon from the heart of Almaden Valley. Presented by Leland High School. May–June, San Jose.",
+    "A student-built high school hackathon from the heart of Almaden Valley. Presented by Leland High School. June 5, 2027 at 8:00 AM Pacific, San Jose.",
   keywords: [
     "hackathon club",
     "leland high school",

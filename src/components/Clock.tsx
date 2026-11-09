@@ -2,38 +2,31 @@
 
 import { useEffect, useState } from "react";
 
-/**
- * The one moving thing on the opening screen: a hackathon clock. Eight hours,
- * counting down in real seconds from the moment the page loads. It is not
- * decoration; it is the format. Held still under prefers-reduced-motion.
- */
+// June in San Jose observes PDT (UTC−07:00). This instant is timezone-independent.
+export const EVENT_START = Date.parse("2027-06-05T08:00:00-07:00");
 
-const EIGHT_HOURS = 8 * 60 * 60;
-
-function fmt(s: number) {
-  const h = Math.floor(s / 3600);
-  const m = Math.floor((s % 3600) / 60);
-  const sec = s % 60;
-  return [h, m, sec].map((n) => String(n).padStart(2, "0")).join(":");
+export function countdownAt(now: number) {
+  const seconds = Math.max(0, Math.floor((EVENT_START - now) / 1000));
+  return [Math.floor(seconds / 86400), Math.floor(seconds / 3600) % 24,
+    Math.floor(seconds / 60) % 60, seconds % 60];
 }
 
 export default function Clock() {
-  const [left, setLeft] = useState(EIGHT_HOURS);
-
+  const [remaining, setRemaining] = useState<number[] | null>(null);
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const start = Date.now();
-    const id = window.setInterval(() => {
-      const gone = Math.floor((Date.now() - start) / 1000);
-      setLeft(Math.max(0, EIGHT_HOURS - gone));
-    }, 1000);
-    return () => window.clearInterval(id);
+    const update = () => setRemaining(countdownAt(Date.now()));
+    update();
+    const interval = window.setInterval(update, 1000);
+    return () => window.clearInterval(interval);
   }, []);
-
-  return (
-    <div className="clock" aria-label="Eight hour hackathon clock, counting down">
-      <span className="clock-label">Time to build</span>
-      <span className="clock-face">{fmt(left)}</span>
+  const started = remaining?.every(value => value === 0);
+  return <div className="countdown" role="group" aria-label="Countdown to June 5, 2027 at 8 AM Pacific">
+    <p className="countdown-label">{started ? "The wait is over. Let’s build." : "Meet you in the valley in"}</p>
+    <div className="countdown-units" aria-live="off">
+      {["Days", "Hours", "Minutes", "Seconds"].map((label, i) => <div className="countdown-unit" key={label}>
+        <span className="countdown-number">{remaining ? String(remaining[i]).padStart(2, "0") : "––"}</span>
+        <span className="countdown-caption">{label}</span>
+      </div>)}
     </div>
-  );
+  </div>;
 }

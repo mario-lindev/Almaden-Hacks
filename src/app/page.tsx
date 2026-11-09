@@ -1,3 +1,4 @@
+import Clock from "@/components/Clock";
 import Mountains from "@/components/Mountains";
 import Nav from "@/components/Nav";
 import Horses from "@/components/Horses";
@@ -9,7 +10,7 @@ import { AsciiText, Constellation, Donut, Gear } from "@/components/AsciiScenes"
 
 const faqs = [
   ["New to hackathons?", "You’re welcome here. Build an app, game, website, or hardware project with other high school students. No experience needed."],
-  ["When and where?", "We’re targeting May–June in Almaden Valley, San Jose. The date, venue, and full eligibility details are coming soon."],
+  ["When and where?", "June 5, 2027, starting at 8:00 AM Pacific in Almaden Valley, San Jose. The venue and full eligibility details are coming soon."],
   ["Do I need a team?", "Come with friends or meet teammates at the event. Bring a laptop and charger; team details and a packing list will follow."],
   ["Will there be hardware?", "Yes! Hardware will be part of Almaden Hacks, alongside software projects. Details on available equipment and materials are coming soon."],
   ["Can I help or sponsor?", "Yes. Support the event through our HCB page. Mentor and sponsorship details are coming soon."],
@@ -20,16 +21,18 @@ export default function Home() {
     <main id="main">
       <section className="hero" id="top">
         <div className="hero-copy">
-          <h1>Almaden Hacks</h1>
-          <p className="hero-description">A high school hackathon for software and hardware projects in San Jose.</p>
+          <h1><span>ALMADEN</span><span>HACKS<span className="hero-period">.</span></span></h1>
+          <p className="hero-date"><time dateTime="2027-06-05T08:00:00-07:00">June 5, 2027 · 8:00 AM PDT</time><span>Almaden Valley, San Jose</span></p>
+          <p className="hero-description">From the valley. For the builders. A high school hackathon for software, hardware, and your next big idea.</p>
           <div className="hero-actions"><EventActions /><a className="text-link" href="#about">About the event <span aria-hidden="true">↓</span></a></div>
         </div>
+        <Clock />
         <div className="hero-landscape"><Mountains /><Horses /></div>
       </section>
 
       <section className="about section-wrap" id="about">
         <div className="about-grid">
-          <Scramble lines={["Almaden Hacks"]} />
+          <h2>Big ideas.<br />Local roots.</h2>
           <div className="about-copy" data-reveal><p className="lead">Software, hardware, and students who build.</p><p>Meet other high school students and build a software or hardware project. All experience levels welcome.</p><a className="text-link" href="#community">Join the Discord <span aria-hidden="true">↗</span></a></div>
         </div>
         <div className="experience-grid" data-reveal="stagger">
@@ -41,7 +44,7 @@ export default function Home() {
 
       <section className="schedule" id="schedule">
         <div className="section-wrap schedule-grid">
-          <div className="schedule-intro"><Scramble lines={["The schedule"]} /><p className="schedule-note">Times will be announced on Luma.</p><EventActions className="button button-light" /></div>
+          <div className="schedule-intro"><Scramble lines={["The schedule"]} /><p className="schedule-note">Saturday, June 5, 2027. We start at 8:00 AM Pacific. The full schedule will be announced on Luma.</p><EventActions className="button button-light" /></div>
           <ol className="timeline" data-reveal="stagger">{[["Team formation", "Meet your team and pick an idea."], ["Project time", "Build software or hardware. Test it. Make it better."], ["Demos", "Demo your project and see what everyone made."]].map(([title, text], i) => <li key={title}><span className="timeline-number">0{i + 1}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
         </div>
       </section>
@@ -61,6 +64,7 @@ export default function Home() {
         <div className="faq-list" data-reveal>{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
       </section>
 
+      <section className="closing section-wrap"><h2>See you in<br /><em>the valley.</em></h2><div><p>June 5, 2027 · Almaden Valley, San Jose</p><EventActions /></div></section>
     </main>
     <footer className="footer">
       <a href="#top" className="footer-wordmark" aria-label="Almaden Hacks, back to top"><AsciiText text="Almaden Hacks" color="#dfe8df" lens="#f0c987" /></a>
