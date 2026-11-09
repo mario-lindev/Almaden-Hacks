@@ -1,3 +1,4 @@
+import RearingHorse from "@/components/RearingHorse";
 import Clock from "@/components/Clock";
 import Nav from "@/components/Nav";
 import EventActions from "@/components/EventActions";
@@ -22,6 +23,7 @@ export default function Home() {
           <p className="hero-description">A high school hackathon for software and hardware projects in San Jose.</p>
           <div className="hero-actions"><EventActions /><EventActions kind="discord" className="button button-secondary" /></div>
         </div>
+        <RearingHorse />
       </section>
 
       <section className="event-bar section-wrap" aria-label="Event details">

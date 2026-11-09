@@ -157,3 +157,11 @@ details > p { padding: 0 32px 24px 0; font-size: 17px; color: var(--muted); line
   .hero-last-line { gap: 10px; }
   .hero-last-line .hero-landscape { width: 85px; height: 70px; }
 }
+
+/* Original rearing mascot, rendered as individual ASCII characters. */
+.rearing-horse { position: absolute; z-index: 4; right: 4%; top: 135px; width: 40%; height: 490px; pointer-events: none; }
+.rearing-horse canvas { display: block; width: 100%; height: 100%; }
+@media (min-width: 801px) { .hero-copy { width: 56%; } }
+@media (max-width: 1050px) and (min-width: 801px) { .rearing-horse { right: 1%; width: 41%; top: 155px; height: 440px; } }
+@media (max-width: 800px) { .rearing-horse { top: auto; bottom: 16px; right: 6%; width: 46%; height: 300px; } }
+@media (max-width: 480px) { .rearing-horse { right: 5%; width: 62%; height: 300px; bottom: 20px; } }
