@@ -8,7 +8,6 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
   return (
     <a
       className={`backer-card${featured ? " backer-card-featured" : ""}`}
-      title={sponsor.description}
       href={sponsor.href}
       target="_blank"
       rel="noreferrer"
@@ -25,7 +24,7 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
         />
         {!sponsor.layout && <span aria-hidden="true">{sponsor.name}</span>}
       </div>
-      <span className="sr-only">
+      <span className="backer-description">
         {sponsor.description}<span aria-hidden="true">↗</span>
       </span>
       {sponsor.pending && <span className="backer-status">Pending confirmation</span>}

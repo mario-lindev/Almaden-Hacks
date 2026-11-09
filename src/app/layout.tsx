@@ -3,8 +3,8 @@ import Script from "next/script";
 import { Inter, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-// Inter carries the bold event identity; mono handles the countdown and
-// event date, with Instrument Serif reserved for editorial accents.
+// Inter handles the UI, Geist Mono the countdown, and Instrument Serif
+// the event identity and headings.
 const sans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",

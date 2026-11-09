@@ -21,9 +21,8 @@ export default function Home() {
     <main id="main">
       <section className="hero" id="top">
         <div className="hero-copy">
-          <h1><span>ALMADEN</span><span>HACKS</span></h1>
-          <p className="hero-date"><time dateTime="2027-06-05T08:00:00-07:00">June 5, 2027 · 8:00 AM PDT</time><span>Almaden Valley, San Jose</span></p>
-          <p className="hero-description">From the valley. For the builders. A high school hackathon for software, hardware, and your next big idea.</p>
+          <h1>Almaden Hacks</h1>
+          <p className="hero-description">A high school hackathon for software and hardware projects in San Jose.</p>
           <div className="hero-actions"><EventActions /><a className="text-link" href="#about">About the event <span aria-hidden="true">↓</span></a></div>
         </div>
         <Clock />
@@ -32,7 +31,7 @@ export default function Home() {
 
       <section className="about section-wrap" id="about">
         <div className="about-grid">
-          <h2>Big ideas.<br />Local roots.</h2>
+          <Scramble lines={["Almaden Hacks"]} />
           <div className="about-copy" data-reveal><p className="lead">Software, hardware, and students who build.</p><p>Meet other high school students and build a software or hardware project. All experience levels welcome.</p><a className="text-link" href="#community">Join the Discord <span aria-hidden="true">↗</span></a></div>
         </div>
         <div className="experience-grid" data-reveal="stagger">
@@ -64,7 +63,6 @@ export default function Home() {
         <div className="faq-list" data-reveal>{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="closing section-wrap"><h2>See you in<br /><em>the valley.</em></h2><div><p>June 5, 2027 · Almaden Valley, San Jose</p><EventActions /></div></section>
     </main>
     <footer className="footer">
       <a href="#top" className="footer-wordmark" aria-label="Almaden Hacks, back to top"><AsciiText text="Almaden Hacks" color="#dfe8df" lens="#f0c987" /></a>
