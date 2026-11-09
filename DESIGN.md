@@ -3,9 +3,9 @@ name: Almaden Hacks
 description: Bold student energy rooted in Almaden Valley.
 colors:
   paper: "#fafaf6"
-  ink: "#243e50"
-  blue: "#365b72"
-  muted: "#60717a"
+  ink: "#19374b"
+  blue: "#284e68"
+  muted: "#42545e"
   line: "#dce3df"
   sage: "#4f7367"
   hero-sky: "#f0f4f1"
@@ -122,3 +122,5 @@ Buttons are pill-shaped. Navigation is a softly rounded paper panel; artwork and
 - Don’t replace the local landscape with generic event artwork.
 - Don’t apply the serif accent to the main event title.
 - Don’t wrap experience copy in elevated cards; its artwork supplies the container.
+
+Readability: secondary text uses deep slate; dark sections use pale supporting text. Heading scrambles update at most every 65ms and resolve within 280ms; headings remain readable until the effect starts. Reduced motion skips decoding.

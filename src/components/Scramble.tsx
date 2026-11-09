@@ -17,20 +17,27 @@ export default function Scramble({ lines, className }: { lines: string[]; classN
     const live = Array.from(el.querySelectorAll<HTMLElement>(".scramble-live"));
     const r = el.getBoundingClientRect();
     if (r.top < innerHeight && r.bottom > 0) return;
-    el.classList.add("is-armed");
     let frame = 0;
     const run = () => {
+      el.classList.add("is-armed");
       const start = performance.now();
+      let lastGlyphUpdate = -Infinity;
       const total = lines.join("").length;
       const tick = (now: number) => {
         const t = now - start;
+        // Fewer symbol changes, with the whole heading readable within 280ms.
+        if (t - lastGlyphUpdate < 65 && t < 280) {
+          frame = requestAnimationFrame(tick);
+          return;
+        }
+        lastGlyphUpdate = t;
         let index = 0, done = true;
         live.forEach((node, l) => {
           node.textContent = Array.from(lines[l], ch => {
-            const at = 120 + (index++ / total) * 650;
-            if (ch === " " || t > at + 180) return ch;
+            const at = (index++ / total) * 180;
+            if (ch === " " || t >= at + 100) return ch;
             done = false;
-            return t < at ? (Math.random() < 0.3 ? GLYPHS[Math.floor(Math.random() * GLYPHS.length)] : " ") : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+            return GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
           }).join("");
         });
         if (done) { el.classList.remove("is-armed"); live.forEach(node => (node.textContent = "")); return; }
@@ -42,7 +49,7 @@ export default function Scramble({ lines, className }: { lines: string[]; classN
       if (!entry.isIntersecting) return;
       io.disconnect();
       run();
-    }, { threshold: 0.6 });
+    }, { threshold: 0.2 });
     io.observe(el);
     return () => { io.disconnect(); cancelAnimationFrame(frame); el.classList.remove("is-armed"); };
   }, [lines]);
