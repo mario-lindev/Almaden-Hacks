@@ -1,11 +1,11 @@
 import Clock from "@/components/Clock";
-import Mountains from "@/components/Mountains";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Horses from "@/components/Horses";
 import EventActions from "@/components/EventActions";
-import Reveal from "@/components/Reveal";
 import Sponsors from "@/components/Sponsors";
-import { Constellation, Donut, Gear } from "@/components/AsciiScenes";
+import Experience from "@/components/Experience";
+import { EVENT_LINKS } from "@/lib/event";
 
 const faqs = [
   ["New to hackathons?", "You’re welcome here. Build an app, game, website, or hardware project with other high school students. No experience needed."],
@@ -16,50 +16,53 @@ const faqs = [
 ];
 export default function Home() {
   return <>
-    <a className="skip-link" href="#main">Skip to content</a><Nav /><Reveal />
+    <a className="skip-link" href="#main">Skip to content</a><Nav />
     <main id="main">
-      <section className="hero" id="top">
+      <section className="hero" id="top" aria-labelledby="hero-title">
+        <picture>
+          <source media="(max-width: 800px)" srcSet="/art/almaden-mobile.webp" />
+          <Image className="hero-backdrop" src="/art/almaden-scene.webp" alt="" fill priority sizes="100vw" />
+        </picture>
         <div className="hero-copy">
-          <h1>Almaden Hacks</h1>
+          <div className="hero-title-lockup"><h1 id="hero-title" aria-label="Almaden Hacks">Almaden<br /><span className="hero-last-line">Hacks<span className="hero-landscape" aria-hidden="true"><Horses animated={false} /></span></span></h1></div>
           <p className="hero-description">A high school hackathon for software and hardware projects in San Jose.</p>
-          <div className="hero-actions"><EventActions /><a className="text-link" href="#about">About the event <span aria-hidden="true">↓</span></a></div>
+          <div className="hero-actions"><EventActions /><EventActions kind="discord" className="button button-secondary" /></div>
         </div>
+      </section>
+
+      <section className="event-bar section-wrap" aria-label="Event details">
+        <div className="event-date"><time dateTime="2027-06-05T08:00:00-07:00">June 5, 2027</time><p>8:00 AM Pacific · Almaden Valley, San Jose</p></div>
         <Clock />
-        <div className="hero-landscape"><Mountains /><Horses /></div>
       </section>
 
-      <section className="about section-wrap" id="about">
+      <section className="about section-wrap" id="about" aria-labelledby="about-title">
         <div className="about-grid">
-          <h2>Almaden Hacks</h2>
-          <div className="about-copy" data-reveal><p className="lead">Software, hardware, and students who build.</p><p>Meet other high school students and build a software or hardware project. All experience levels welcome.</p><a className="text-link" href="#community">Join the Discord <span aria-hidden="true">↗</span></a></div>
+          <h2 id="about-title">Software, hardware,<br />and students who build.</h2>
+          <div className="about-copy"><p>Meet other high school students and build a software or hardware project. All experience levels welcome.</p><a className="text-link" href={EVENT_LINKS.discord} target="_blank" rel="noreferrer">Join the Discord <span aria-hidden="true">↗</span></a></div>
         </div>
-        <div className="experience-grid" data-reveal="stagger">
-          <article><div className="card-art"><Donut /></div><h3>Software</h3><p>Build an app, game, or website.</p></article>
-          <article><div className="card-art"><Gear /></div><h3>Hardware</h3><p>Work on a physical project. Equipment details will be announced.</p></article>
-          <article><div className="card-art"><Constellation /></div><h3>Teams</h3><p>Meet teammates, trade ideas, and learn together.</p></article>
-        </div>
+        <Experience />
       </section>
 
-      <section className="schedule" id="schedule">
+      <section className="schedule" id="schedule" aria-labelledby="schedule-title">
         <div className="section-wrap schedule-grid">
-          <div className="schedule-intro"><h2>The schedule</h2><p className="schedule-note">Saturday, June 5, 2027. We start at 8:00 AM Pacific. The full schedule will be announced on Luma.</p><EventActions className="button button-light" /></div>
-          <ol className="timeline" data-reveal="stagger">{[["Team formation", "Meet your team and pick an idea."], ["Project time", "Build software or hardware. Test it. Make it better."], ["Demos", "Demo your project and see what everyone made."]].map(([title, text]) => <li key={title}><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
+          <div className="schedule-intro"><h2 id="schedule-title">A day to make<br />something yours.</h2><p className="schedule-note">Saturday, June 5, 2027. We start at 8:00 AM Pacific. The full schedule will be announced on Luma.</p><EventActions className="button button-light" /></div>
+          <ol className="timeline">{[["Team formation", "Meet your team and pick an idea."], ["Project time", "Build software or hardware. Test it. Make it better."], ["Demos", "Demo your project and see what everyone made."]].map(([title, text]) => <li key={title}><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
         </div>
       </section>
 
-      <section className="community section-wrap" id="community">
-        <h2>Discord</h2>
-        <div className="community-copy" data-reveal><p>Meet future teammates and catch event announcements on Discord.</p><EventActions kind="discord" /></div>
+      <section className="community section-wrap" id="community" aria-labelledby="community-title">
+        <div><h2 id="community-title">Good ideas start<br />with good company.</h2></div>
+        <div className="community-copy"><p>Meet future teammates and catch event announcements on Discord.</p><EventActions kind="discord" /></div>
       </section>
 
-      <section className="sponsors section-wrap" id="sponsors">
-        <div className="sponsor-heading"><h2>Sponsors</h2><p data-reveal>Prizes, tools, and support for Almaden Hacks.</p></div>
+      <section className="sponsors section-wrap" id="sponsors" aria-labelledby="sponsors-title">
+        <div className="sponsor-heading"><h2 id="sponsors-title">Supported by good people.</h2><p>Prizes, tools, and support for Almaden Hacks.</p></div>
         <Sponsors />
       </section>
 
-      <section className="faq section-wrap" id="faq">
-        <div className="faq-intro"><h2>FAQ</h2></div>
-        <div className="faq-list" data-reveal>{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
+      <section className="faq section-wrap" id="faq" aria-labelledby="faq-title">
+        <div className="faq-intro"><h2 id="faq-title">A few things<br />to know.</h2></div>
+        <div className="faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
       </section>
 
     </main>

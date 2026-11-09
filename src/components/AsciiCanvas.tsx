@@ -22,6 +22,7 @@ type Props = {
   /** Cell width in CSS px for a canvas of width w. */
   cell?: (w: number) => number;
   fps?: number;
+  animate?: boolean;
   /** Pointer lens: brightens glyphs and reveals the grid near the cursor. */
   lens?: { radius: number; color: string } | false;
   /** Left-to-right scan on first paint. */
@@ -37,7 +38,7 @@ const hash = (x: number, y: number, z: number) => {
   return n - Math.floor(n);
 };
 
-export default function AsciiCanvas({ label, className = "", layers, cell = w => (w < 600 ? 4 : 5), fps = 20, lens = false, reveal = false, still = 3 }: Props) {
+export default function AsciiCanvas({ label, className = "", layers, cell = w => (w < 600 ? 4 : 5), fps = 20, animate = true, lens = false, reveal = false, still = 3 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
   const scene = useRef(layers);
   const cellOf = useRef(cell);
@@ -55,7 +56,7 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
     const sample = document.createElement("canvas");
     const s = sample.getContext("2d", { willReadFrequently: true });
     if (!canvas || !ctx || !s) return;
-    const motion = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const motion = animate && !matchMedia("(prefers-reduced-motion: reduce)").matches;
     const mono = getComputedStyle(document.body).getPropertyValue("--font-mono").trim() || "monospace";
     let frame = 0, started = 0, last = 0, pausedAt = 0;
     let visible = false, disposed = false;
@@ -181,7 +182,7 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
       document.documentElement.removeEventListener("pointerleave", onLeave);
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [fps, reveal, still]);
+  }, [fps, reveal, still, animate]);
 
   return <canvas ref={ref} className={`ascii-canvas ${className}`} role="img" aria-label={label} />;
 }

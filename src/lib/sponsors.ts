@@ -20,7 +20,7 @@ export const SPONSOR_GROUPS: SponsorGroup[] = [
       {
         "name": "YRI Fellowship",
         "href": "https://www.yriscience.com/?ref=ALMADENHACKS",
-        "logo": "/marks/yri.png",
+        "logo": "/marks/yri-wordmark.png",
         "description": "Research fellowship support",
         "layout": "featured"
       },
@@ -53,8 +53,9 @@ export const SPONSOR_GROUPS: SponsorGroup[] = [
       {
         "name": "Scrimba",
         "href": "https://scrimba.com",
-        "logo": "/marks/scrimba.png",
-        "description": "One-year Pro subscriptions for winners"
+        "logo": "/marks/scrimba.svg",
+        "description": "One-year Pro subscriptions for winners",
+        "layout": "wordmark"
       },
       {
         "name": "Tumult",
@@ -67,7 +68,8 @@ export const SPONSOR_GROUPS: SponsorGroup[] = [
         "name": "Hack Club",
         "href": "https://hackclub.com",
         "logo": "/marks/hackclub.svg",
-        "description": "Fiscal sponsorship through HCB"
+        "description": "Fiscal sponsorship through HCB",
+        "layout": "wordmark"
       },
       {
         "name": "n8n",
@@ -103,8 +105,9 @@ export const SPONSOR_GROUPS: SponsorGroup[] = [
       {
         "name": "SunFounder",
         "href": "https://www.sunfounder.com",
-        "logo": "/marks/sunfounder.png",
-        "description": "10% attendee discount on most products"
+        "logo": "/marks/sunfounder-wordmark.png",
+        "description": "10% attendee discount on most products",
+        "layout": "wordmark"
       },
       {
         "name": "Rosebud AI",
