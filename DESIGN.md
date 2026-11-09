@@ -2,27 +2,27 @@
 name: Almaden Hacks
 description: Bold student energy rooted in Almaden Valley.
 colors:
-  paper: "#f6f7f3"
-  ink: "#263c59"
-  blue: "#2d4faa"
-  muted: "#526575"
-  line: "#d8dfdf"
-  rust: "#c4622d"
-  hero-sky: "#e9eff2"
-  blue-hover: "#203d8b"
+  paper: "#fafaf6"
+  ink: "#243e50"
+  blue: "#365b72"
+  muted: "#60717a"
+  line: "#dce3df"
+  sage: "#4f7367"
+  hero-sky: "#f0f4f1"
+  blue-hover: "#29495e"
   light-button: "#e5ebe4"
-  footer: "#203c40"
+  footer: "#233f43"
   white: "#ffffff"
 typography:
   display:
     fontFamily: "Inter, Arial, sans-serif"
-    fontSize: "clamp(74px, 12vw, 166px)"
-    fontWeight: 850
-    lineHeight: 0.88
+    fontSize: "clamp(74px, 10.5vw, 140px)"
+    fontWeight: 750
+    lineHeight: 0.94
     letterSpacing: "-0.04em"
   headline:
     fontFamily: "Inter, Arial, sans-serif"
-    fontSize: "clamp(40px, 5.2vw, 68px)"
+    fontSize: "clamp(38px, 4.8vw, 60px)"
     fontWeight: 650
     lineHeight: 1.08
     letterSpacing: "-0.04em"
@@ -61,7 +61,7 @@ components:
     rounded: "{rounded.button}"
     padding: "13px 26px"
   navigation:
-    backgroundColor: "#f6f7f3f5"
+    backgroundColor: "#fafaf6f5"
     rounded: "{rounded.navigation}"
     height: "64px"
     padding: "0 24px"
@@ -78,11 +78,11 @@ A bold student event identity grounded in Almaden Valley. Stacked Inter headline
 **Key Characteristics:**
 - Bold stacked event typography.
 - Pale sky, paper surfaces, and blue-green landscape layers.
-- Animated ASCII artwork with restrained rust accents.
+- Animated ASCII artwork with restrained sage accents.
 
 ## Colors
 
-Cobalt is the primary action color; ink carries text and the schedule surface. Paper and pale sky keep the page airy. Muted text and light rules separate supporting information. Rust punctuates the hero and closing accent. The footer deepens the landscape’s green-blue tones. Preserve the existing mountain gradients and horse-plane colors in their source components.
+Cobalt is the primary action color; ink carries text and the schedule surface. Paper and pale sky keep the page airy. Muted text and light rules separate supporting information. Sage provides the closing accent. The footer deepens the landscape’s green-blue tones. Preserve the existing mountain gradients and horse-plane colors in their source components.
 
 ## Typography
 
@@ -90,7 +90,7 @@ Inter leads the display, section titles, body, and navigation. Geist Mono carrie
 
 ## Layout
 
-Sections use a centered 1240px container and the section spacing token. At 900px, section padding becomes 72px 32px and primary two-column layouts stack; experience columns remain three until 650px. At 650px, section padding becomes 64px 24px and experience cards stack. The hero is centered above a full-width landscape anchored to its bottom. Desktop hero minimum height is 940px; mobile is 850px. The fixed navigation floats 16px below the desktop viewport edge, becoming 12px on mobile.
+Sections use a centered 1240px container and the section spacing token. At 900px, section padding becomes 72px 32px and primary two-column layouts stack; experience columns remain three until 650px. At 650px, section padding becomes 64px 24px and experience cards stack. The hero is centered above a full-width landscape anchored to its bottom. Desktop hero minimum height is 900px; mobile is 850px. The fixed navigation floats 16px below the desktop viewport edge, becoming 12px on mobile.
 
 ## Elevation & Depth
 

@@ -21,7 +21,7 @@ export default function Home() {
     <main id="main">
       <section className="hero" id="top">
         <div className="hero-copy">
-          <h1><span>ALMADEN</span><span>HACKS<span className="hero-period">.</span></span></h1>
+          <h1><span>ALMADEN</span><span>HACKS</span></h1>
           <p className="hero-date"><time dateTime="2027-06-05T08:00:00-07:00">June 5, 2027 · 8:00 AM PDT</time><span>Almaden Valley, San Jose</span></p>
           <p className="hero-description">From the valley. For the builders. A high school hackathon for software, hardware, and your next big idea.</p>
           <div className="hero-actions"><EventActions /><a className="text-link" href="#about">About the event <span aria-hidden="true">↓</span></a></div>

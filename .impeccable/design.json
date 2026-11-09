@@ -6,7 +6,7 @@
     "shadows": [
       {
         "name": "button-hover",
-        "value": "0 12px 30px #2d4faa33",
+        "value": "0 12px 30px #365b7233",
         "purpose": "Primary action hover lift."
       },
       {
@@ -108,7 +108,7 @@
           "oklch(95% 0.0076 197.02)"
         ]
       },
-      "rust": {
+      "sage": {
         "displayName": "Rust",
         "role": "secondary",
         "tonalRamp": [
@@ -201,7 +201,7 @@
       "refersTo": "button-primary",
       "description": "Registration action.",
       "html": "<a class=\"ds-button\" href=\"#register\">Register <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M6 18 18 6M6 6h12v12\"/></svg></a>",
-      "css": ".ds-button{display:inline-flex;align-items:center;gap:28px;min-height:52px;padding:13px 26px;border:1px solid var(--blue,#2d4faa);border-radius:28px;background:var(--blue,#2d4faa);color:white;font:500 15px/1.4 var(--sans,Inter,Arial,sans-serif);text-decoration:none;transition:background .2s,transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s}.ds-button:hover{background:#203d8b;transform:translateY(-2px);box-shadow:0 12px 30px #2d4faa33}.ds-button:focus-visible{outline:2px solid var(--blue,#2d4faa);outline-offset:5px}"
+      "css": ".ds-button{display:inline-flex;align-items:center;gap:28px;min-height:52px;padding:13px 26px;border:1px solid var(--blue,#365b72);border-radius:28px;background:var(--blue,#365b72);color:white;font:500 15px/1.4 var(--sans,Inter,Arial,sans-serif);text-decoration:none;transition:background .2s,transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s}.ds-button:hover{background:#29495e;transform:translateY(-2px);box-shadow:0 12px 30px #365b7233}.ds-button:focus-visible{outline:2px solid var(--blue,#365b72);outline-offset:5px}"
     },
     {
       "name": "Light action",
@@ -209,7 +209,7 @@
       "refersTo": "button-light",
       "description": "Action on dark sections.",
       "html": "<a class=\"ds-button ds-light\" href=\"#register\">Register</a>",
-      "css": ".ds-button{display:inline-flex;align-items:center;gap:28px;min-height:52px;padding:13px 26px;border:1px solid var(--blue,#2d4faa);border-radius:28px;background:var(--blue,#2d4faa);color:white;font:500 15px/1.4 var(--sans,Inter,Arial,sans-serif);text-decoration:none;transition:background .2s,transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s}.ds-button:hover{background:#203d8b;transform:translateY(-2px);box-shadow:0 12px 30px #2d4faa33}.ds-button:focus-visible{outline:2px solid var(--blue,#2d4faa);outline-offset:5px}.ds-light{background:#e5ebe4;border-color:#e5ebe4;color:#2d4362}.ds-light:hover{background:white;box-shadow:0 12px 30px #0003}"
+      "css": ".ds-button{display:inline-flex;align-items:center;gap:28px;min-height:52px;padding:13px 26px;border:1px solid var(--blue,#365b72);border-radius:28px;background:var(--blue,#365b72);color:white;font:500 15px/1.4 var(--sans,Inter,Arial,sans-serif);text-decoration:none;transition:background .2s,transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s}.ds-button:hover{background:#29495e;transform:translateY(-2px);box-shadow:0 12px 30px #365b7233}.ds-button:focus-visible{outline:2px solid var(--blue,#365b72);outline-offset:5px}.ds-light{background:#e5ebe4;border-color:#e5ebe4;color:#2d4362}.ds-light:hover{background:white;box-shadow:0 12px 30px #0003}"
     },
     {
       "name": "Floating navigation",
@@ -217,7 +217,7 @@
       "refersTo": "navigation",
       "description": "Paper navigation with registration action.",
       "html": "<nav class=\"ds-nav\"><strong>Almaden Hacks</strong><a href=\"#about\">The experience</a><a href=\"#faq\">FAQ</a></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:28px;height:64px;padding:0 24px;border:1px solid #b7c8d0;border-radius:16px;background:#f6f7f3f5;color:var(--ink,#263c59);font:14px var(--sans,Inter,Arial,sans-serif)}.ds-nav strong{font-size:18px;font-weight:650;letter-spacing:-.03em}.ds-nav a{color:inherit;text-decoration:none}.ds-nav a:hover{color:var(--blue,#2d4faa);text-decoration:underline;text-underline-offset:6px}.ds-nav a:focus-visible{outline:2px solid var(--blue,#2d4faa);outline-offset:5px}"
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:28px;height:64px;padding:0 24px;border:1px solid #b7c8d0;border-radius:16px;background:#fafaf6f5;color:var(--ink,#243e50);font:14px var(--sans,Inter,Arial,sans-serif)}.ds-nav strong{font-size:18px;font-weight:650;letter-spacing:-.03em}.ds-nav a{color:inherit;text-decoration:none}.ds-nav a:hover{color:var(--blue,#365b72);text-decoration:underline;text-underline-offset:6px}.ds-nav a:focus-visible{outline:2px solid var(--blue,#365b72);outline-offset:5px}"
     },
     {
       "name": "Sponsor container",
@@ -225,7 +225,7 @@
       "refersTo": "",
       "description": "A fine bordered identity container.",
       "html": "<a class=\"ds-sponsor\" href=\"#sponsors\"><strong>Sponsor name</strong><span>Supporting local builders</span></a>",
-      "css": ".ds-sponsor{display:flex;flex-direction:column;justify-content:space-between;min-height:156px;padding:24px;border:1px solid var(--line,#d8dfdf);border-radius:12px;color:var(--ink,#263c59);font:16px/1.5 var(--sans,Inter,Arial,sans-serif);text-decoration:none;transition:border-color .2s}.ds-sponsor strong{font-size:28px;font-weight:500}.ds-sponsor:hover{border-color:var(--blue,#2d4faa)}.ds-sponsor:focus-visible{outline:2px solid var(--blue,#2d4faa);outline-offset:5px}"
+      "css": ".ds-sponsor{display:flex;flex-direction:column;justify-content:space-between;min-height:156px;padding:24px;border:1px solid var(--line,#dce3df);border-radius:12px;color:var(--ink,#243e50);font:16px/1.5 var(--sans,Inter,Arial,sans-serif);text-decoration:none;transition:border-color .2s}.ds-sponsor strong{font-size:28px;font-weight:500}.ds-sponsor:hover{border-color:var(--blue,#365b72)}.ds-sponsor:focus-visible{outline:2px solid var(--blue,#365b72);outline-offset:5px}"
     },
     {
       "name": "FAQ disclosure",
@@ -233,7 +233,7 @@
       "refersTo": "",
       "description": "Native expandable question and answer.",
       "html": "<details class=\"ds-faq\"><summary>Who can attend?<span>+</span></summary><p>High school students are welcome.</p></details>",
-      "css": ".ds-faq{border-top:1px solid var(--line,#d8dfdf);border-bottom:1px solid var(--line,#d8dfdf);font:16px/1.65 var(--sans,Inter,Arial,sans-serif);color:var(--ink,#263c59)}.ds-faq summary{display:flex;justify-content:space-between;padding:26px 0;list-style:none;cursor:pointer;font-size:18px;font-weight:500}.ds-faq summary::-webkit-details-marker{display:none}.ds-faq summary:hover{color:var(--blue,#2d4faa)}.ds-faq summary span{font-size:26px;color:#7d8e99;transition:transform .4s cubic-bezier(.22,1,.36,1)}.ds-faq[open] summary span{transform:rotate(45deg)}.ds-faq p{padding:0 40px 28px 0;margin:0;color:var(--muted,#526575)}.ds-faq summary:focus-visible{outline:2px solid var(--blue,#2d4faa);outline-offset:5px}"
+      "css": ".ds-faq{border-top:1px solid var(--line,#dce3df);border-bottom:1px solid var(--line,#dce3df);font:16px/1.65 var(--sans,Inter,Arial,sans-serif);color:var(--ink,#243e50)}.ds-faq summary{display:flex;justify-content:space-between;padding:26px 0;list-style:none;cursor:pointer;font-size:18px;font-weight:500}.ds-faq summary::-webkit-details-marker{display:none}.ds-faq summary:hover{color:var(--blue,#365b72)}.ds-faq summary span{font-size:26px;color:#7d8e99;transition:transform .4s cubic-bezier(.22,1,.36,1)}.ds-faq[open] summary span{transform:rotate(45deg)}.ds-faq p{padding:0 40px 28px 0;margin:0;color:var(--muted,#60717a)}.ds-faq summary:focus-visible{outline:2px solid var(--blue,#365b72);outline-offset:5px}"
     }
   ],
   "narrative": {
@@ -242,7 +242,7 @@
     "keyCharacteristics": [
       "Bold stacked event typography.",
       "Pale sky, paper surfaces, and blue-green landscape layers.",
-      "Animated ASCII artwork with restrained rust accents."
+      "Animated ASCII artwork with restrained sage accents."
     ],
     "rules": [],
     "dos": [
