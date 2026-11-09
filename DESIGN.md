@@ -105,7 +105,7 @@ Buttons are pill-shaped. Navigation is a softly rounded paper panel; artwork and
 - **Buttons:** Cobalt with white text; hover darkens, lifts 2px, and shifts the directional mark. The light variant serves dark sections. Keyboard focus uses a 2px cobalt outline offset 5px.
 - **Navigation:** Compact Inter wordmark, understated links with animated underlines, and a cobalt registration pill. At 650px a Menu button opens a paper dropdown.
 - **Experience cards:** Three open columns with rounded ASCII artwork above left-aligned titles and copy; no outer border or hover lift.
-- **Sponsor cards:** Fine bordered containers with 24px padding and 12px corners. Preserve sponsor marks and featured black/white branding.
+- **Sponsor cards:** Compact logo tiles with 16px padding, 96px minimum height, and 12px corners. Four columns on desktop, two below 900px; Gold remains two columns. Descriptions remain available to assistive technology and as hover titles. Preserve sponsor marks and featured black/white branding.
 - **FAQ:** Native disclosure rows with fine dividers; the marker rotates when open and answer height transitions when supported.
 - **Countdown:** Four tabular mono values with small captions. Its target is June 5, 2027 at 08:00 PDT; zero is clamped and the label changes at the event start.
 - **Landscape:** Layered valley ridges and ASCII horses remain the signature visual. Respect reduced-motion preferences; global reveal content remains visible.
