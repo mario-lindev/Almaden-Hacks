@@ -1,8 +1,8 @@
 .header {
-  --nav-surface: rgba(193, 214, 239, .85);
-  --nav-brand-surface: rgba(169, 195, 225, .48);
+  --nav-surface: rgba(250, 250, 248, .90);
+  --nav-brand-surface: transparent;
   --nav-text: #172230;
-  --nav-border: rgba(97, 122, 151, .25);
+  --nav-border: rgba(35, 39, 43, .13);
   --nav-hover: rgba(34, 47, 38, .06);
   --nav-button: #24282e;
   --nav-button-hover: #39414b;
@@ -23,7 +23,7 @@
   border-radius: 12px;
   background: var(--nav-surface);
   color: var(--nav-text);
-  box-shadow: 0 3px 16px rgba(37, 60, 88, .08);
+  box-shadow: 0 3px 16px rgba(25, 28, 31, .06);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }

@@ -42,7 +42,7 @@ p { text-wrap: pretty; }
 
 /* The valley illustration dissolves into the page, behind the title lockup. */
 .hero { position: relative; width: min(90%, 1440px); min-height: 780px; height: min(900px, 92svh); margin: 0 auto; isolation: isolate; overflow: hidden; background: var(--paper); border-radius: 0; }
-.hero-visual { position: absolute; inset: 0; z-index: 0; pointer-events: none; mask-image: linear-gradient(to bottom, #000 0%, #000 60%, #000c 76%, #0005 91%, transparent 100%); }
+.hero-visual { position: absolute; inset: 0; z-index: 0; pointer-events: none; mask-image: linear-gradient(to bottom, #000 0%, #000 58%, #000e 68%, #0009 78%, #0003 88%, transparent 96%), linear-gradient(to right, transparent, #000 7%, #000 93%, transparent); mask-composite: intersect; }
 .hero-backdrop { object-fit: cover; object-position: center 68%; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, #fdfcf9c9 0%, #fdfcf980 25%, #fdfcf926 50%, transparent 72%); }
 .hero-copy { position: relative; z-index: 3; width: 76%; padding: 155px 0 0 clamp(32px, 5.6vw, 90px); }
@@ -162,4 +162,3 @@ details > p { padding: 0 32px 24px 0; font-size: 17px; color: var(--muted); line
   .hero-last-line { gap: 10px; }
   .hero-last-line .hero-landscape { width: 85px; height: 70px; }
 }
-
