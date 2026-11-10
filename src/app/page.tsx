@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Horses from "@/components/Horses";
 import Clock from "@/components/Clock";
 import Nav from "@/components/Nav";
 import EventActions from "@/components/EventActions";
@@ -24,7 +23,7 @@ export default function Home() {
           <Image className="hero-backdrop" src="/art/almaden-scene-soft-sky.webp" alt="" fill priority sizes="100vw" />
         </picture>
         <div className="hero-copy">
-          <div className="hero-title-lockup"><h1 id="hero-title" aria-label="Almaden Hacks">Almaden<br /><span className="hero-last-line">Hacks<span className="hero-landscape" aria-hidden="true"><Horses animated={false} /></span></span></h1></div>
+          <div className="hero-title-lockup"><h1 id="hero-title" aria-label="Almaden Hacks">Almaden<br /><span className="hero-last-line">Hacks</span></h1></div>
           <p className="hero-description">A high school hackathon for software and hardware projects in San Jose.</p>
           <div className="hero-actions"><EventActions /><EventActions kind="discord" className="button button-secondary" /></div>
         </div>
