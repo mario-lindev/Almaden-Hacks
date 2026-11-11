@@ -30,6 +30,9 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
       { name: "Tristan Cadatal", role: "Outreach" },
       { name: "Moksh Shah", role: "Outreach" },
       { name: "Quincy Cadatal", role: "Outreach" },
+      { name: "Pratheek Konduru", role: "Outreach" },
+      { name: "Suhas Kudithpudi", role: "Outreach" },
+      { name: "Abhiram Gikadere", role: "Outreach" },
     ],
   },
   {
