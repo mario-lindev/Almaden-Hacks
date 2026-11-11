@@ -206,3 +206,36 @@ test("redraws static glyphs when fonts finish loading", async () => {
   assert.equal(removed.paints, removedPaints);
   assert.equal(removed.pendingFrames, 0);
 });
+
+test("keeps animation time paused until both visibility conditions recover", () => {
+  const scene = mount();
+  scene.frame(200);
+  assert.equal(scene.times.at(-1).time, 0.1);
+  scene.advance(200);
+  scene.intersect(false);
+  scene.advance(300);
+  scene.document.hidden = true;
+  scene.document.emit("visibilitychange");
+  scene.advance(400);
+  scene.document.hidden = false;
+  scene.document.emit("visibilitychange");
+  assert.equal(scene.pendingFrames, 0);
+  scene.advance(1000);
+  scene.intersect(true);
+  scene.frame(1000);
+  assert.equal(scene.times.at(-1).time, 0.1);
+
+  scene.advance(1100);
+  scene.document.hidden = true;
+  scene.document.emit("visibilitychange");
+  scene.advance(1200);
+  scene.intersect(false);
+  scene.advance(1300);
+  scene.intersect(true);
+  scene.advance(2000);
+  scene.document.hidden = false;
+  scene.document.emit("visibilitychange");
+  scene.frame(2000);
+  assert.equal(scene.times.at(-1).time, 0.2);
+  scene.unmount();
+});

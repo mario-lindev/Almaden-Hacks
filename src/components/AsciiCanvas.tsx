@@ -160,7 +160,12 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
 
     const start = () => { if (!frame && visible && !document.hidden && !disposed) frame = requestAnimationFrame(draw); };
     const pause = () => { cancelAnimationFrame(frame); frame = 0; if (!pausedAt) pausedAt = performance.now(); };
-    const resume = () => { if (pausedAt && started) started += performance.now() - pausedAt; pausedAt = 0; start(); };
+    const resume = () => {
+      if (!visible || document.hidden || disposed) return;
+      if (pausedAt && started) started += performance.now() - pausedAt;
+      pausedAt = 0;
+      start();
+    };
     const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) resume(); else pause(); }, { rootMargin: "120px" });
     observer.observe(canvas);
     const onVisibility = () => (document.hidden ? pause() : resume());
