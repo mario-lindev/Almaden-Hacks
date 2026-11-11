@@ -14,14 +14,14 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
     id: "lead",
     title: "Lead",
     members: [
-      { name: "Mario Lin", href: "https://mariolin.com" },
-      { name: "Rishith Chennupati", href: "https://rishithc.com" },
+      { name: "Mario Lin", href: "https://www.linkedin.com/in/mario-lin7/" },
+      { name: "Rishith Chennupati", href: "https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/" },
     ],
   },
   {
     id: "executive",
     title: "Executive",
-    members: [{ name: "Varun Chilukuri" }],
+    members: [{ name: "Varun Chilukuri", href: "https://www.linkedin.com/in/varunchilukuri26/" }],
   },
   {
     id: "design-marketing",
@@ -36,7 +36,7 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
   {
     id: "volunteers",
     title: "Volunteers",
-    members: [{ name: "Oliver Lin", role: "Compliance Manager @ Meta" }],
+    members: [{ name: "Oliver Lin", role: "Compliance Manager @ Meta", href: "https://www.linkedin.com/in/oliver-lin-41999a14/" }],
   },
 ];
 
