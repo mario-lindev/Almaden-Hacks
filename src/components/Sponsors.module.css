@@ -38,7 +38,7 @@
   --logo-width: 146px;
 }
 .tier[data-tier="Partners"] .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.tier[data-tier="Gold"] .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tier[data-tier="Gold"] .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .tier + .tier { margin-top: 12px; }
 .tierTitle { margin: 26px 0 0; font-family: inherit; font-size: 16px; font-weight: 500; line-height: 1.4; letter-spacing: 0; }
 .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; list-style: none; margin: 0; padding: 0; }
@@ -73,8 +73,8 @@
   .tier + .tier { margin-top: 22px; }
   .tierTitle { margin: 0 0 10px; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .tier[data-tier="Partners"] .grid,
-  .tier[data-tier="Gold"] .grid { grid-template-columns: minmax(0, 1fr); }
+  .tier[data-tier="Partners"] .grid { grid-template-columns: minmax(0, 1fr); }
+  .tier[data-tier="Gold"] .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .icon span { font-size: 14px; }
 }
 
