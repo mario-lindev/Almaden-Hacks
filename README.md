@@ -24,13 +24,11 @@ npm run build
 | Folder | Contents |
 | --- | --- |
 | [src](src/README.md) | Application source and shared content |
-| [src/app](src/app/README.md) | Homepage, layout, metadata, global styles, and app icon |
+| [src/app](src/app/README.md) | Homepage, team page, shared layout, metadata, and styles |
 | [src/components](src/components/README.md) | Navigation, sponsor cards, event actions, and artwork |
-| [src/components/blackhole](src/components/blackhole/README.md) | Optional WebGPU renderer and shaders |
 | [src/lib](src/lib/README.md) | Registration links and typed sponsor data |
-| [public](public/README.md) | Static images and animation assets |
+| [public](public/README.md) | Homepage illustrations and partner and sponsor logos |
 | [public/marks](public/marks/README.md) | Sponsor logos and source attribution |
-| [scripts](scripts/README.md) | Offline artwork generation |
 | [.claude](.claude/README.md) | Local development launch configuration |
 
 ## Updating content
@@ -41,6 +39,7 @@ npm run build
   [SOURCES.md](public/marks/SOURCES.md). A file in public/marks is served at /marks/filename.
 - Edit registration and Discord URLs in [src/lib/event.ts](src/lib/event.ts).
 - Edit event and FAQ copy in [src/app/page.tsx](src/app/page.tsx).
+- Edit the roster in [src/app/team/page.tsx](src/app/team/page.tsx).
 
 ## Deployment
 
@@ -51,6 +50,4 @@ the existing project, then verify the production build and domains in Vercel.
 
 ## Artwork
 
-The homepage uses canvas-based ASCII scenes, mountain layers, and animated
-horses. The optional black-hole scene remains available in the component
-library but is not mounted on the homepage.
+The homepage uses responsive Almaden Valley illustrations and interactive ASCII scenes in the experience panel.

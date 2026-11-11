@@ -1,8 +1,7 @@
 # Pages, Layout & Styles
 
-- page.tsx: Event homepage, schedule, sponsor section, and FAQ.
-- layout.tsx: Fonts, metadata, global stylesheet, and Luma checkout script.
-- globals.css: Site-wide visual styles and responsive rules.
-- icon.svg: Application icon.
-
-Keep shared content in ../lib and reusable UI in ../components.
+- `page.tsx` renders the homepage, partner and sponsor listings, and FAQ.
+- [`team/`](team/README.md) contains the team page and roster.
+- `layout.tsx` loads fonts, metadata, and the global stylesheet.
+- `globals.css` defines site-wide styles and responsive rules.
+- `icon.svg` is the site icon.
