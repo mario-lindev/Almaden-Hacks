@@ -22,7 +22,7 @@ type Team = {
 const teams: Team[] = [
   {
     id: "lead",
-    title: "Lead Organizer",
+    title: "Lead Organizers",
     members: [
       {
         name: "Mario Lin",
@@ -34,15 +34,9 @@ const teams: Team[] = [
         role: "Co-Founder, Lead Outreach and Developer",
         href: "https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/",
       },
-    ],
-  },
-  {
-    id: "executive",
-    title: "Executive",
-    members: [
       {
         name: "Varun Chilukuri",
-        role: 'Co-Founder, 3× Hackathon Winner, "Goat of Hackathon"',
+        role: "Co-Founder, Lead Outreach",
         href: "https://www.linkedin.com/in/varunchilukuri26/",
       },
     ],
