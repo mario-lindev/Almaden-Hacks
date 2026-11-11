@@ -11,19 +11,40 @@
 }
 
 .note { margin: 0 0 20px; color: var(--sponsor-muted); font-size: 14px; line-height: 1.5; }
-.tier { display: grid; grid-template-columns: 106px minmax(0, 1fr); gap: 22px; align-items: start; }
+.tier {
+  --tile-height: 100px;
+  --logo-height: 44px;
+  --logo-width: 174px;
+  display: grid; grid-template-columns: 106px minmax(0, 1fr); gap: 22px; align-items: start;
+}
+.tier[data-tier="Gold"] {
+  --tile-height: 152px;
+  --logo-height: 64px;
+  --logo-width: 240px;
+}
+.tier[data-tier="Silver"] {
+  --tile-height: 118px;
+  --logo-height: 48px;
+  --logo-width: 186px;
+}
+.tier[data-tier="Bronze"] {
+  --tile-height: 92px;
+  --logo-height: 36px;
+  --logo-width: 146px;
+}
+.tier[data-tier="Gold"] .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .tier + .tier { margin-top: 12px; }
 .tierTitle { margin: 26px 0 0; font-family: inherit; font-size: 16px; font-weight: 500; line-height: 1.4; letter-spacing: 0; }
 .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; list-style: none; margin: 0; padding: 0; }
 .grid > li { min-width: 0; }
-.tile { position: relative; display: flex; align-items: center; justify-content: center; min-height: 100px; height: 100%; padding: 14px 12px; border: 1px solid var(--sponsor-line); border-radius: 5px; background: var(--sponsor-paper); transition: background .18s, border-color .18s; }
+.tile { position: relative; display: flex; align-items: center; justify-content: center; min-height: var(--tile-height); height: 100%; padding: 14px 12px; border: 1px solid var(--sponsor-line); border-radius: 5px; background: var(--sponsor-paper); transition: background .18s, border-color .18s; }
 .tile:hover { background: var(--sponsor-hover); border-color: var(--sponsor-muted); }
 .tile:focus-visible { outline: 2px solid var(--sponsor-ink); outline-offset: 3px; }
 .identity { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; min-width: 0; }
 .icon img { flex: none; width: 36px; height: 36px; object-fit: contain; }
 .icon span { font-size: 15px; font-weight: 500; line-height: 1.25; }
-.wordmark { height: 44px; }
-.wordmark img { width: 100%; max-width: 174px; height: 44px; object-fit: contain; }
+.wordmark { height: var(--logo-height); }
+.wordmark img { width: 100%; max-width: var(--logo-width); height: var(--logo-height); object-fit: contain; }
 .featured, .featured:hover { background: var(--sponsor-dark); border-color: var(--sponsor-dark); color: var(--sponsor-light); overflow: hidden; }
 .featured .identity { height: 46px; }
 .featured img { width: 100%; height: 46px; max-width: 174px; object-fit: contain; }
@@ -46,7 +67,7 @@
   .tier + .tier { margin-top: 22px; }
   .tierTitle { margin: 0 0 10px; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .tile { min-height: 96px; }
+  .tier[data-tier="Gold"] .grid { grid-template-columns: minmax(0, 1fr); }
   .icon span { font-size: 14px; }
 }
 

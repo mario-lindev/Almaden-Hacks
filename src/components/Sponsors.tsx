@@ -42,7 +42,7 @@ export default function Sponsors() {
   return (
     <div className={styles.tiers}>
       {confirmedGroups.map((group) => (
-        <section className={styles.tier} aria-label={group.title} key={group.title}>
+        <section className={styles.tier} data-tier={group.title} aria-label={group.title} key={group.title}>
           <h3 className={styles.tierTitle}>{group.title}</h3>
           <ul className={styles.grid}>
             {group.backers.map((sponsor) => (

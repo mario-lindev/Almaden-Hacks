@@ -18,13 +18,6 @@ export const SPONSOR_GROUPS: SponsorGroup[] = [
     "title": "Gold",
     "backers": [
       {
-        "name": "YRI Fellowship",
-        "href": "https://www.yriscience.com/?ref=ALMADENHACKS",
-        "logo": "/marks/yri-wordmark.png",
-        "description": "Research fellowship support",
-        "layout": "featured"
-      },
-      {
         "name": "ElevenLabs",
         "href": "https://elevenlabs.io",
         "logo": "/marks/elevenlabs.svg",
@@ -62,13 +55,6 @@ export const SPONSOR_GROUPS: SponsorGroup[] = [
         "href": "https://tumult.com",
         "logo": "/marks/tumult.gif",
         "description": "Hype licenses for prizes",
-        "layout": "wordmark"
-      },
-      {
-        "name": "Hack Club",
-        "href": "https://hackclub.com",
-        "logo": "/marks/hackclub.svg",
-        "description": "Fiscal sponsorship through HCB",
         "layout": "wordmark"
       },
       {
@@ -120,6 +106,25 @@ export const SPONSOR_GROUPS: SponsorGroup[] = [
         "href": "https://interviewbuddy.net",
         "logo": "/marks/interviewbuddy.svg",
         "description": "Interview practice credits and discounts",
+        "layout": "wordmark"
+      }
+    ]
+  },
+  {
+    "title": "Partners",
+    "backers": [
+      {
+        "name": "YRI Fellowship",
+        "href": "https://www.yriscience.com/?ref=ALMADENHACKS",
+        "logo": "/marks/yri-wordmark.png",
+        "description": "Research fellowship support",
+        "layout": "featured"
+      },
+      {
+        "name": "Hack Club / HCB",
+        "href": "https://hackclub.com",
+        "logo": "/marks/hackclub.svg",
+        "description": "Fiscal sponsorship through HCB",
         "layout": "wordmark"
       }
     ]
