@@ -87,7 +87,7 @@ const teams: Team[] = [
       },
       {
         name: "Varsha Chilukuri",
-        role: "Volunteer Judge (Software)",
+        role: "AI Engineer @ Observe.AI, Volunteer Judge (Software)",
         href: "https://www.linkedin.com/in/varshachilukuri/",
       },
     ],
