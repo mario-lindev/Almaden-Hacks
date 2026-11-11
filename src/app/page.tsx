@@ -42,13 +42,6 @@ export default function Home() {
         <Experience />
       </section>
 
-      <section className="schedule" id="schedule" aria-labelledby="schedule-title">
-        <div className="section-wrap schedule-grid">
-          <div className="schedule-intro"><h2 id="schedule-title">A day to make<br />something yours.</h2><p className="schedule-note">Saturday, June 5, 2027. We start at 8:00 AM Pacific. The full schedule will be announced on Luma.</p><EventActions className="button button-light" /></div>
-          <ol className="timeline">{[["Team formation", "Meet your team and pick an idea."], ["Project time", "Build software or hardware. Test it. Make it better."], ["Demos", "Demo your project and see what everyone made."]].map(([title, text]) => <li key={title}><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
-        </div>
-      </section>
-
       <section className="community section-wrap" id="community" aria-labelledby="community-title">
         <div><h2 id="community-title">Good ideas start<br />with good company.</h2></div>
         <div className="community-copy"><p>Meet future teammates and catch event announcements on Discord.</p><EventActions kind="discord" /></div>
@@ -67,7 +60,7 @@ export default function Home() {
     </main>
     <footer className="footer">
       <a href="#top" className="footer-wordmark" aria-label="Almaden Hacks, back to top">Almaden Hacks</a>
-      <div className="footer-top"><div><a href="#about">About</a><a href="#schedule">The day</a><a href="#sponsors">Sponsorship</a><a href="#faq">FAQ</a></div><a href="#top" className="back-top">Back to top ↑</a></div>
+      <div className="footer-top"><div><a href="#about">About</a><a href="#sponsors">Sponsorship</a><a href="#faq">FAQ</a></div><a href="#top" className="back-top">Back to top ↑</a></div>
       <div className="footer-bottom"><span>Organized by students at Leland High School.</span><a href="https://hcb.hackclub.com/almaden-hacks" target="_blank" rel="noreferrer">Fiscally sponsored by HCB</a></div>
       <div className="design-credit"><span>Website designed by <a href="https://mariolin.com" target="_blank" rel="noreferrer">Mario Lin</a> and <a href="https://rishithc.com" target="_blank" rel="noreferrer">Rishith Chennupati</a></span><a href="https://github.com/rishith-c" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/" target="_blank" rel="noreferrer">LinkedIn</a></div>
     </footer>

@@ -7,7 +7,6 @@ import styles from "./Nav.module.css";
 
 const NAV_LINKS = [
   ["About", "about"],
-  ["Schedule", "schedule"],
   ["Sponsors", "sponsors"],
   ["FAQ", "faq"],
 ] as const;

@@ -27,18 +27,21 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
         {!sponsor.layout && <span aria-hidden="true">{sponsor.name}</span>}
       </div>
       <span id={descriptionId} className={styles.visuallyHidden}>
-        {sponsor.description}{sponsor.pending ? ". Pending confirmation." : ""}
+        {sponsor.description}
       </span>
-      {sponsor.pending && <span className={styles.pending}>Pending</span>}
     </a>
   );
 }
 
 export default function Sponsors() {
+  const confirmedGroups = SPONSOR_GROUPS.map((group) => ({
+    ...group,
+    backers: group.backers.filter((sponsor) => !sponsor.pending),
+  })).filter((group) => group.backers.length > 0);
+
   return (
     <div className={styles.tiers}>
-      <p className={styles.note}>Pending offers still need final confirmation.</p>
-      {SPONSOR_GROUPS.map((group) => (
+      {confirmedGroups.map((group) => (
         <section className={styles.tier} aria-label={group.title} key={group.title}>
           <h3 className={styles.tierTitle}>{group.title}</h3>
           <ul className={styles.grid}>
