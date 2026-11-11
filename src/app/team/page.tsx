@@ -21,7 +21,7 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
   {
     id: "executive",
     title: "Executive",
-    members: [{ name: "Varun Chilukuri", role: "Co-founder, 3× hackathon winner", href: "https://www.linkedin.com/in/varunchilukuri26/" }],
+    members: [{ name: "Varun Chilukuri", role: 'Co-founder, 3× hackathon winner, "goat of hackathon"', href: "https://www.linkedin.com/in/varunchilukuri26/" }],
   },
   {
     id: "design-marketing",
