@@ -12,7 +12,7 @@ type TeamMember = { name: string; role?: string; href?: string };
 const teams: { id: string; title: string; members: TeamMember[] }[] = [
   {
     id: "lead",
-    title: "Lead",
+    title: "Lead Organizer",
     members: [
       { name: "Mario Lin", href: "https://www.linkedin.com/in/mario-lin7/" },
       { name: "Rishith Chennupati", href: "https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/" },
@@ -26,7 +26,11 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
   {
     id: "design-marketing",
     title: "Design & Marketing",
-    members: [{ name: "Tristan Cadatal" }, { name: "Moksh Shah" }],
+    members: [
+      { name: "Tristan Cadatal" },
+      { name: "Moksh Shah" },
+      { name: "Quincy Cadatal" },
+    ],
   },
   {
     id: "operations",
