@@ -135,3 +135,21 @@ test("repaints a static scene when its drawing props change", () => {
   assert.equal(scene.pendingFrames, 0);
   scene.unmount();
 });
+
+test("uses the current lens setting for pointer interaction after mount", () => {
+  const scene = mount({ animate: false, lens: false });
+  scene.render({ animate: false, lens: { radius: 40, color: "red" } });
+  scene.frame(200);
+  const beforePointer = scene.paints;
+  scene.window.emit("pointermove", { clientX: 50, clientY: 50 });
+  scene.frame(300);
+  assert.equal(scene.paints, beforePointer + 1);
+  scene.render({ animate: false, lens: false });
+  scene.frame(400);
+  const disabledPaints = scene.paints;
+  scene.window.emit("pointermove", { clientX: 10, clientY: 10 });
+  scene.frame(500);
+  assert.equal(scene.paints, disabledPaints);
+  scene.unmount();
+  assert.equal(scene.window.count("pointermove"), 0);
+});

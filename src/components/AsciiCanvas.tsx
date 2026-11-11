@@ -169,15 +169,13 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
     const onMotion = () => { motion = animate && !preference.matches; started = 0; last = 0; start(); };
     const onPointer = (e: PointerEvent) => {
       pointer.x = e.clientX; pointer.y = e.clientY;
-      if (!motion) { last = 0; start(); }
+      if (lensRef.current && !motion) { last = 0; start(); }
     };
     const onLeave = () => { pointer.x = pointer.y = -1e4; };
     window.addEventListener("resize", onResize);
     preference.addEventListener("change", onMotion);
-    if (lensRef.current) {
-      window.addEventListener("pointermove", onPointer, { passive: true });
-      document.documentElement.addEventListener("pointerleave", onLeave);
-    }
+    window.addEventListener("pointermove", onPointer, { passive: true });
+    document.documentElement.addEventListener("pointerleave", onLeave);
     document.addEventListener("visibilitychange", onVisibility);
     return () => {
       disposed = true;
