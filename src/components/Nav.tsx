@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { EVENT_LINKS } from "@/lib/event";
 import EventActions from "./EventActions";
@@ -12,6 +14,8 @@ const NAV_LINKS = [
 ] as const;
 
 export default function Nav() {
+  const pathname = usePathname();
+  const homeAnchor = (id: string) => pathname === "/" ? `#${id}` : `/#${id}`;
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
@@ -36,7 +40,7 @@ export default function Nav() {
 
   return (
     <header className={styles.header} data-scrolled={scrolled}>
-      <a href="#top" className={styles.brand} aria-label="Almaden Hacks home" onClick={() => setOpen(false)}>
+      <a href={homeAnchor("top")} className={styles.brand} aria-label="Almaden Hacks home" onClick={() => setOpen(false)}>
         Almaden Hacks
       </a>
       <button
@@ -57,8 +61,9 @@ export default function Nav() {
         onClick={() => setOpen(false)}
       >
         {NAV_LINKS.map(([label, id]) => (
-          <a key={id} className={styles.link} href={`#${id}`}>{label}</a>
+          <a key={id} className={styles.link} href={homeAnchor(id)}>{label}</a>
         ))}
+        <Link className={styles.link} href="/team" aria-current={pathname === "/team" ? "page" : undefined}>Our Team</Link>
         <a className={styles.link} href={EVENT_LINKS.discord} target="_blank" rel="noreferrer">Join Discord</a>
         <EventActions className={styles.register} />
       </nav>
