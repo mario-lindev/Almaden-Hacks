@@ -17,6 +17,11 @@
   --logo-width: 174px;
   display: grid; grid-template-columns: 106px minmax(0, 1fr); gap: 22px; align-items: start;
 }
+.tier[data-tier="Partners"] {
+  --tile-height: 184px;
+  --logo-height: 82px;
+  --logo-width: 300px;
+}
 .tier[data-tier="Gold"] {
   --tile-height: 152px;
   --logo-height: 64px;
@@ -32,6 +37,7 @@
   --logo-height: 36px;
   --logo-width: 146px;
 }
+.tier[data-tier="Partners"] .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .tier[data-tier="Gold"] .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .tier + .tier { margin-top: 12px; }
 .tierTitle { margin: 26px 0 0; font-family: inherit; font-size: 16px; font-weight: 500; line-height: 1.4; letter-spacing: 0; }
@@ -46,8 +52,8 @@
 .wordmark { height: var(--logo-height); }
 .wordmark img { width: 100%; max-width: var(--logo-width); height: var(--logo-height); object-fit: contain; }
 .featured, .featured:hover { background: var(--sponsor-dark); border-color: var(--sponsor-dark); color: var(--sponsor-light); overflow: hidden; }
-.featured .identity { height: 46px; }
-.featured img { width: 100%; height: 46px; max-width: 174px; object-fit: contain; }
+.featured .identity { height: var(--logo-height); }
+.featured img { width: 100%; height: var(--logo-height); max-width: var(--logo-width); object-fit: contain; }
 .darkMark { padding: 4px; border-radius: 3px; background: var(--sponsor-ink); }
 .pending { position: absolute; bottom: 3px; left: 0; right: 0; text-align: center; color: var(--sponsor-muted); font-size: 12px; line-height: 1.3; }
 .invite { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--sponsor-line); font-size: 16px; line-height: 1.5; }
@@ -67,6 +73,7 @@
   .tier + .tier { margin-top: 22px; }
   .tierTitle { margin: 0 0 10px; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tier[data-tier="Partners"] .grid,
   .tier[data-tier="Gold"] .grid { grid-template-columns: minmax(0, 1fr); }
   .icon span { font-size: 14px; }
 }

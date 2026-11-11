@@ -42,11 +42,6 @@ export default function Home() {
         <Experience />
       </section>
 
-      <section className="community section-wrap" id="community" aria-labelledby="community-title">
-        <div><h2 id="community-title">Good ideas start<br />with good company.</h2></div>
-        <div className="community-copy"><p>Meet future teammates and catch event announcements on Discord.</p><EventActions kind="discord" /></div>
-      </section>
-
       <section className="sponsors section-wrap" id="sponsors" aria-labelledby="sponsors-title">
         <div className="sponsor-heading"><h2 id="sponsors-title">Supported by good people.</h2><p>Prizes, tools, and support for Almaden Hacks.</p></div>
         <Sponsors />

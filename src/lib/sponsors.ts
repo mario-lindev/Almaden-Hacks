@@ -15,6 +15,25 @@ export type SponsorGroup = {
 // Keep sponsor content here and logo attribution in public/marks/SOURCES.md.
 export const SPONSOR_GROUPS: SponsorGroup[] = [
   {
+    "title": "Partners",
+    "backers": [
+      {
+        "name": "YRI Fellowship",
+        "href": "https://www.yriscience.com/?ref=ALMADENHACKS",
+        "logo": "/marks/yri-wordmark.png",
+        "description": "Research fellowship support",
+        "layout": "featured"
+      },
+      {
+        "name": "Hack Club / HCB",
+        "href": "https://hackclub.com",
+        "logo": "/marks/hackclub.svg",
+        "description": "Fiscal sponsorship through HCB",
+        "layout": "wordmark"
+      }
+    ]
+  },
+  {
     "title": "Gold",
     "backers": [
       {
@@ -106,25 +125,6 @@ export const SPONSOR_GROUPS: SponsorGroup[] = [
         "href": "https://interviewbuddy.net",
         "logo": "/marks/interviewbuddy.svg",
         "description": "Interview practice credits and discounts",
-        "layout": "wordmark"
-      }
-    ]
-  },
-  {
-    "title": "Partners",
-    "backers": [
-      {
-        "name": "YRI Fellowship",
-        "href": "https://www.yriscience.com/?ref=ALMADENHACKS",
-        "logo": "/marks/yri-wordmark.png",
-        "description": "Research fellowship support",
-        "layout": "featured"
-      },
-      {
-        "name": "Hack Club / HCB",
-        "href": "https://hackclub.com",
-        "logo": "/marks/hackclub.svg",
-        "description": "Fiscal sponsorship through HCB",
         "layout": "wordmark"
       }
     ]
