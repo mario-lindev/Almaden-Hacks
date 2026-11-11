@@ -81,7 +81,7 @@ const teams: Team[] = [
         href: "https://www.linkedin.com/in/oliver-lin-41999a14/",
       },
       {
-        name: "Varsa Chilkuri",
+        name: "Varsa Chilukuri",
         role: "Volunteer Judge",
         href: "https://www.linkedin.com/in/varshachilukuri/",
       },
