@@ -7,21 +7,45 @@ export const metadata: Metadata = {
   description: "Meet the students organizing Almaden Hacks at Leland High School.",
 };
 
-type TeamMember = { name: string; role?: string; href?: string };
+type TeamMember = {
+  name: string;
+  role: string;
+  href?: string;
+};
 
-const teams: { id: string; title: string; members: TeamMember[] }[] = [
+type Team = {
+  id: string;
+  title: string;
+  members: TeamMember[];
+};
+
+const teams: Team[] = [
   {
     id: "lead",
     title: "Lead Organizer",
     members: [
-      { name: "Mario Lin", role: "Co-founder, lead outreach and developer", href: "https://www.linkedin.com/in/mario-lin7/" },
-      { name: "Rishith Chennupati", role: "Co-founder, lead outreach and developer", href: "https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/" },
+      {
+        name: "Mario Lin",
+        role: "Co-Founder, Lead Outreach and Developer",
+        href: "https://www.linkedin.com/in/mario-lin7/",
+      },
+      {
+        name: "Rishith Chennupati",
+        role: "Co-Founder, Lead Outreach and Developer",
+        href: "https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/",
+      },
     ],
   },
   {
     id: "executive",
     title: "Executive",
-    members: [{ name: "Varun Chilukuri", role: 'Co-founder, 3× hackathon winner, "goat of hackathon"', href: "https://www.linkedin.com/in/varunchilukuri26/" }],
+    members: [
+      {
+        name: "Varun Chilukuri",
+        role: 'Co-Founder, 3× Hackathon Winner, "Goat of Hackathon"',
+        href: "https://www.linkedin.com/in/varunchilukuri26/",
+      },
+    ],
   },
   {
     id: "design-marketing",
@@ -39,8 +63,16 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
     id: "operations",
     title: "Operations",
     members: [
-      { name: "Sanshray Chada", role: "Outreach and helper", href: "https://www.linkedin.com/in/sanshraychada/" },
-      { name: "Aaditya Shah", role: "Helper", href: "https://aadityashah.vercel.app/" },
+      {
+        name: "Sanshray Chada",
+        role: "Outreach and Helper",
+        href: "https://www.linkedin.com/in/sanshraychada/",
+      },
+      {
+        name: "Aaditya Shah",
+        role: "Helper",
+        href: "https://aadityashah.vercel.app/",
+      },
       { name: "Ferris Chia", role: "Helper" },
       { name: "Gurvir Singh", role: "Helper" },
     ],
@@ -48,7 +80,13 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
   {
     id: "volunteers",
     title: "Volunteers",
-    members: [{ name: "Oliver Lin", role: "Hardware Compliance Manager @ Meta", href: "https://www.linkedin.com/in/oliver-lin-41999a14/" }],
+    members: [
+      {
+        name: "Oliver Lin",
+        role: "Hardware Compliance Manager @ Meta",
+        href: "https://www.linkedin.com/in/oliver-lin-41999a14/",
+      },
+    ],
   },
 ];
 
@@ -56,7 +94,7 @@ function MemberCard({ member }: { member: TeamMember }) {
   const details = (
     <span className={styles.details}>
       <span className={styles.name}>{member.name}</span>
-      {member.role && <span className={styles.role}>{member.role}</span>}
+      <span className={styles.role}>{member.role}</span>
     </span>
   );
 
@@ -87,7 +125,9 @@ export default function TeamPage() {
               <h2 id={`team-${team.id}`}>{team.title}</h2>
               <ul className={styles.grid}>
                 {team.members.map((member) => (
-                  <li key={member.name}><MemberCard member={member} /></li>
+                  <li key={member.name}>
+                    <MemberCard member={member} />
+                  </li>
                 ))}
               </ul>
             </section>
