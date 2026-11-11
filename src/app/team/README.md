@@ -1,3 +1,3 @@
-# Our Team
+# Team Page
 
-`page.tsx` renders `/team` and defines the roster, roles, and profile links. `Team.module.css` controls the responsive card layout.
+Defines the team groups, member details, profile links, and card layout.

@@ -21,15 +21,18 @@ npm run build
 
 ## Folder guide
 
-| Folder | Contents |
+| Folder | Purpose |
 | --- | --- |
-| [src](src/README.md) | Application source and shared content |
-| [src/app](src/app/README.md) | Homepage, team page, shared layout, metadata, and styles |
-| [src/components](src/components/README.md) | Navigation, sponsor cards, event actions, and artwork |
-| [src/lib](src/lib/README.md) | Registration links and typed sponsor data |
-| [public](public/README.md) | Homepage illustrations and partner and sponsor logos |
-| [public/marks](public/marks/README.md) | Sponsor logos and source attribution |
-| [.claude](.claude/README.md) | Local development launch configuration |
+| [`src/`](src/README.md) | Application source for the website. |
+| [`src/app/`](src/app/README.md) | Page routes and site-wide presentation. |
+| [`src/app/team/`](src/app/team/README.md) | Team page and roster presentation. |
+| [`src/components/`](src/components/README.md) | Reusable interface components and interactive visuals. |
+| [`src/lib/`](src/lib/README.md) | Shared site content and configuration. |
+| [`public/`](public/README.md) | Static assets served by the website. |
+| [`public/art/`](public/art/README.md) | Illustrations and supporting artwork. |
+| [`public/marks/`](public/marks/README.md) | Organization logos and attribution. |
+| [`.claude/`](.claude/README.md) | Local development launch settings. |
+| [`.impeccable/`](.impeccable/README.md) | Design tooling configuration. |
 
 ## Updating content
 
