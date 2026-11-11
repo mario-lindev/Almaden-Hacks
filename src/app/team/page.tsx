@@ -35,7 +35,7 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
   {
     id: "operations",
     title: "Operations",
-    members: [{ name: "SansCreates" }, { name: "Aaditya Shah" }, { name: "Ferris Chia" }],
+    members: [{ name: "Sanshray Chada" }, { name: "Aaditya Shah" }, { name: "Ferris Chia" }],
   },
   {
     id: "volunteers",
