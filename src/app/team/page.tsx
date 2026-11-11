@@ -48,7 +48,7 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
   {
     id: "volunteers",
     title: "Volunteers",
-    members: [{ name: "Oliver Lin", role: "Compliance Manager @ Meta", href: "https://www.linkedin.com/in/oliver-lin-41999a14/" }],
+    members: [{ name: "Oliver Lin", role: "Hardware Compliance Manager @ Meta", href: "https://www.linkedin.com/in/oliver-lin-41999a14/" }],
   },
 ];
 
