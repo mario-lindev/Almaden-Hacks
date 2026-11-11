@@ -43,11 +43,13 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
   const scene = useRef(layers);
   const cellOf = useRef(cell);
   const lensRef = useRef(lens);
+  const redraw = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     scene.current = layers;
     cellOf.current = cell;
     lensRef.current = lens;
+    redraw.current?.();
   }, [layers, cell, lens]);
 
   useEffect(() => {
@@ -163,6 +165,7 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
     observer.observe(canvas);
     const onVisibility = () => (document.hidden ? pause() : resume());
     const onResize = () => { last = 0; start(); };
+    redraw.current = onResize;
     const onMotion = () => { motion = animate && !preference.matches; started = 0; last = 0; start(); };
     const onPointer = (e: PointerEvent) => {
       pointer.x = e.clientX; pointer.y = e.clientY;
@@ -178,6 +181,7 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
     document.addEventListener("visibilitychange", onVisibility);
     return () => {
       disposed = true;
+      redraw.current = null;
       cancelAnimationFrame(frame);
       observer.disconnect();
       window.removeEventListener("resize", onResize);

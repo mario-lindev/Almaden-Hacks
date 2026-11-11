@@ -124,3 +124,14 @@ test("updates animation when the reduced-motion preference changes", () => {
   assert.equal(scene.media.count("change"), 0);
   assert.equal(scene.pendingFrames, 0);
 });
+
+test("repaints a static scene when its drawing props change", () => {
+  const scene = mount({ animate: false });
+  let updatedDraws = 0;
+  scene.render({ animate: false, cell: () => 8, layers: () => { updatedDraws++; return []; } });
+  scene.frame(200);
+  assert.equal(updatedDraws, 1);
+  assert.equal(scene.canvas.getContext().font, "500 11.36px monospace");
+  assert.equal(scene.pendingFrames, 0);
+  scene.unmount();
+});
