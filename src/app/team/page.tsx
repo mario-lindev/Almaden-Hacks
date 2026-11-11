@@ -50,7 +50,7 @@ const teams: Team[] = [
       { name: "Quincy Cadatal", role: "Outreach" },
       { name: "Pratheek Konduru", role: "Outreach" },
       { name: "Suhas Kudithpudi", role: "Outreach" },
-      { name: "Abhiram Gikadere", role: "Outreach" },
+      { name: "Abhiram Gadikere", role: "Outreach" },
     ],
   },
   {
