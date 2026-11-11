@@ -171,7 +171,10 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
       pointer.x = e.clientX; pointer.y = e.clientY;
       if (lensRef.current && !motion) { last = 0; start(); }
     };
-    const onLeave = () => { pointer.x = pointer.y = -1e4; };
+    const onLeave = () => {
+      pointer.x = pointer.y = -1e4;
+      if (lensRef.current && !motion) { last = 0; start(); }
+    };
     window.addEventListener("resize", onResize);
     preference.addEventListener("change", onMotion);
     window.addEventListener("pointermove", onPointer, { passive: true });

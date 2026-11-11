@@ -29,13 +29,13 @@ function eventTarget() {
 function mount(props = {}, reducedMotion = false) {
   const slots = [], effects = [], frames = new Map(), intersections = [], resizes = [];
   const times = [];
-  let cursor = 0, nextFrame = 0, clock = 100, paints = 0, resolveFonts;
+  let cursor = 0, nextFrame = 0, clock = 100, paints = 0, glyphs = 0, resolveFonts;
   const media = Object.assign(eventTarget(), { matches: reducedMotion });
   const fonts = Object.assign(eventTarget(), { ready: new Promise(resolve => { resolveFonts = resolve; }) });
   const document = Object.assign(eventTarget(), { hidden: false, body: {}, documentElement: eventTarget(), fonts });
   const window = eventTarget();
   const context = {
-    setTransform() {}, clearRect() { paints++; }, fillRect() {}, fillText() {},
+    setTransform() {}, clearRect() { paints++; glyphs = 0; }, fillRect() {}, fillText() { glyphs++; },
     getImageData(_x, _y, width, height) { return { data: new Uint8ClampedArray(width * height * 4).fill(255) }; },
   };
   const canvas = {
@@ -99,7 +99,7 @@ function mount(props = {}, reducedMotion = false) {
   frame(100);
   return {
     render, frame, intersect, unmount, media, fonts, document, window, canvas, times,
-    get paints() { return paints; }, get pendingFrames() { return frames.size; },
+    get paints() { return paints; }, get glyphs() { return glyphs; }, get pendingFrames() { return frames.size; },
     advance(now) { clock = now; },
     preference(reduce) { media.matches = reduce; media.emit("change", { matches: reduce }); },
     resize(width, height) {
@@ -152,4 +152,18 @@ test("uses the current lens setting for pointer interaction after mount", () => 
   assert.equal(scene.paints, disabledPaints);
   scene.unmount();
   assert.equal(scene.window.count("pointermove"), 0);
+});
+
+test("repaints a static lens when the pointer leaves the document", () => {
+  const scene = mount({ animate: false, lens: { radius: 40, color: "red" } });
+  scene.window.emit("pointermove", { clientX: 50, clientY: 50 });
+  scene.frame(200);
+  const beforeLeave = scene.paints;
+  assert.ok(scene.glyphs > 0);
+  scene.document.documentElement.emit("pointerleave");
+  scene.frame(300);
+  assert.equal(scene.paints, beforeLeave + 1);
+  assert.equal(scene.glyphs, 0);
+  assert.equal(scene.pendingFrames, 0);
+  scene.unmount();
 });
