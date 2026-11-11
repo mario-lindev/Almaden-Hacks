@@ -165,6 +165,8 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
     observer.observe(canvas);
     const onVisibility = () => (document.hidden ? pause() : resume());
     const onResize = () => { last = 0; start(); };
+    const sizeObserver = new ResizeObserver(onResize);
+    sizeObserver.observe(canvas);
     redraw.current = onResize;
     const onMotion = () => { motion = animate && !preference.matches; started = 0; last = 0; start(); };
     const onPointer = (e: PointerEvent) => {
@@ -185,6 +187,7 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
       redraw.current = null;
       cancelAnimationFrame(frame);
       observer.disconnect();
+      sizeObserver.disconnect();
       window.removeEventListener("resize", onResize);
       preference.removeEventListener("change", onMotion);
       window.removeEventListener("pointermove", onPointer);

@@ -167,3 +167,17 @@ test("repaints a static lens when the pointer leaves the document", () => {
   assert.equal(scene.pendingFrames, 0);
   scene.unmount();
 });
+
+test("redraws static canvases when their container changes size", () => {
+  const scene = mount({ animate: false });
+  scene.resize(180, 120);
+  scene.frame(200);
+  assert.equal(scene.canvas.width, 180);
+  assert.equal(scene.canvas.height, 120);
+  assert.deepEqual(scene.times.at(-1), { time: 3, width: 180, height: 120 });
+  scene.unmount();
+  const afterUnmount = scene.paints;
+  scene.resize(240, 160);
+  scene.frame(300);
+  assert.equal(scene.paints, afterUnmount);
+});
