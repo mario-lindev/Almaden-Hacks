@@ -80,6 +80,11 @@ const teams: Team[] = [
         role: "Hardware Compliance Manager @ Meta",
         href: "https://www.linkedin.com/in/oliver-lin-41999a14/",
       },
+      {
+        name: "Varsa Chilkuri",
+        role: "Volunteer Judge",
+        href: "https://www.linkedin.com/in/varshachilukuri/",
+      },
     ],
   },
 ];
