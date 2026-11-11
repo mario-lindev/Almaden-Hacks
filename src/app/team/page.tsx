@@ -77,18 +77,18 @@ const teams: Team[] = [
     members: [
       {
         name: "Oliver Lin",
-        role: "Hardware Compliance Manager @ Meta",
+        role: "Hardware Compliance Manager @ Meta, Volunteer Judge (Hardware)",
         href: "https://www.linkedin.com/in/oliver-lin-41999a14/",
       },
       {
-        name: "Varsha Chilukuri",
-        role: "Volunteer Judge",
-        href: "https://www.linkedin.com/in/varshachilukuri/",
+        name: "Usha Kiran",
+        role: "Senior Manager @ Adobe, Volunteer Judge (Software)",
+        href: "https://www.linkedin.com/in/ushakiran1/",
       },
       {
-        name: "Usha Kiran",
-        role: "Senior Manager @ Adobe, Volunteer Judge",
-        href: "https://www.linkedin.com/in/ushakiran1/",
+        name: "Varsha Chilukuri",
+        role: "Volunteer Judge (Software)",
+        href: "https://www.linkedin.com/in/varshachilukuri/",
       },
     ],
   },
