@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://almadenhacks.com"),
   title: "Almaden Hacks",
   description:
-    "A student-built high school hackathon from the heart of Almaden Valley. Presented by Leland High School. June 5, 2027 at 8:00 AM Pacific, San Jose.",
+    "A student-built high school hackathon from the heart of Almaden Valley. Presented by Leland High School. June 12, 2027 at 8:00 AM Pacific, San Jose.",
   keywords: [
     "hackathon club",
     "leland high school",
