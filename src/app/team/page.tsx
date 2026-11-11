@@ -36,7 +36,7 @@ const teams: Team[] = [
       },
       {
         name: "Varun Chilukuri",
-        role: "Co-Founder, Lead Outreach",
+        role: "Co-Founder, Lead Outreach, 3× Hackathon Winner",
         href: "https://www.linkedin.com/in/varunchilukuri26/",
       },
     ],
