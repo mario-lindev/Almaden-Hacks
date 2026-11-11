@@ -7,10 +7,56 @@ export const metadata: Metadata = {
   description: "Meet the students organizing Almaden Hacks at Leland High School.",
 };
 
-const organizers = [
-  { name: "Mario Lin", role: "Co-founder and lead organizer", href: "https://mariolin.com" },
-  { name: "Rishith Chennupati", role: "Organizer", href: "https://rishithc.com" },
+type TeamMember = { name: string; role?: string; href?: string };
+
+const teams: { id: string; title: string; members: TeamMember[] }[] = [
+  {
+    id: "lead",
+    title: "Lead",
+    members: [
+      { name: "Mario Lin", href: "https://mariolin.com" },
+      { name: "Rishith Chennupati", href: "https://rishithc.com" },
+    ],
+  },
+  {
+    id: "executive",
+    title: "Executive",
+    members: [{ name: "Varun Chilukuri" }],
+  },
+  {
+    id: "design-marketing",
+    title: "Design & Marketing",
+    members: [{ name: "Tristan Cadatal" }, { name: "Moksh Shah" }],
+  },
+  {
+    id: "operations",
+    title: "Operations",
+    members: [{ name: "sanscreates" }, { name: "Aaditya Shah" }, { name: "Ferris C." }],
+  },
+  {
+    id: "volunteers",
+    title: "Volunteers",
+    members: [{ name: "Oliver Lin", role: "Compliance Manager @ Meta" }],
+  },
 ];
+
+function MemberCard({ member }: { member: TeamMember }) {
+  const details = (
+    <span className={styles.details}>
+      <span className={styles.name}>{member.name}</span>
+      {member.role && <span className={styles.role}>{member.role}</span>}
+    </span>
+  );
+
+  return member.href ? (
+    <a className={styles.card} href={member.href}>
+      {details}
+      <span aria-hidden="true">↗</span>
+    </a>
+  ) : (
+    <div className={styles.card}>{details}</div>
+  );
+}
 
 export default function TeamPage() {
   return (
@@ -23,22 +69,18 @@ export default function TeamPage() {
           <p>Meet the students organizing Almaden Hacks at Leland High School.</p>
         </header>
 
-        <section aria-labelledby="organizers-title">
-          <h2 id="organizers-title">Organizers</h2>
-          <ul className={styles.grid}>
-            {organizers.map((person) => (
-              <li key={person.name}>
-                <a className={styles.card} href={person.href}>
-                  <span className={styles.details}>
-                    <span className={styles.name}>{person.name}</span>
-                    <span className={styles.role}>{person.role}</span>
-                  </span>
-                  <span aria-hidden="true">↗</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
+        <div className={styles.teams}>
+          {teams.map((team) => (
+            <section key={team.id} aria-labelledby={`team-${team.id}`}>
+              <h2 id={`team-${team.id}`}>{team.title}</h2>
+              <ul className={styles.grid}>
+                {team.members.map((member) => (
+                  <li key={member.name}><MemberCard member={member} /></li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
       </main>
     </>
   );
