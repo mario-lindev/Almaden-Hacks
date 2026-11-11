@@ -15,13 +15,13 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
     title: "Lead Organizer",
     members: [
       { name: "Mario Lin", role: "Co-founder", href: "https://www.linkedin.com/in/mario-lin7/" },
-      { name: "Rishith Chennupati", role: "Co-founder, 8× hackathon winner", href: "https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/" },
+      { name: "Rishith Chennupati", role: "Co-founder", href: "https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/" },
     ],
   },
   {
     id: "executive",
     title: "Executive",
-    members: [{ name: "Varun Chilukuri", role: "Co-founder", href: "https://www.linkedin.com/in/varunchilukuri26/" }],
+    members: [{ name: "Varun Chilukuri", role: "Co-founder, 3× hackathon winner", href: "https://www.linkedin.com/in/varunchilukuri26/" }],
   },
   {
     id: "design-marketing",
