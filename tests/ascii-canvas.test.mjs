@@ -181,3 +181,28 @@ test("redraws static canvases when their container changes size", () => {
   scene.frame(300);
   assert.equal(scene.paints, afterUnmount);
 });
+
+test("redraws static glyphs when fonts finish loading", async () => {
+  const scene = mount({ animate: false });
+  const beforeFonts = scene.paints;
+  scene.resolveFonts();
+  await Promise.resolve();
+  scene.frame(200);
+  assert.equal(scene.paints, beforeFonts + 1);
+  scene.fonts.emit("loadingdone");
+  scene.frame(300);
+  assert.equal(scene.paints, beforeFonts + 2);
+  scene.unmount();
+  scene.fonts.emit("loadingdone");
+  scene.frame(400);
+  assert.equal(scene.paints, beforeFonts + 2);
+
+  const removed = mount({ animate: false });
+  const removedPaints = removed.paints;
+  removed.unmount();
+  removed.resolveFonts();
+  await Promise.resolve();
+  removed.frame(200);
+  assert.equal(removed.paints, removedPaints);
+  assert.equal(removed.pendingFrames, 0);
+});
