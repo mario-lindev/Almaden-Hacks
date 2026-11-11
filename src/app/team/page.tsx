@@ -36,7 +36,7 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
     id: "operations",
     title: "Operations",
     members: [
-      { name: "Sanshray Chada" },
+      { name: "Sanshray Chada", href: "https://www.linkedin.com/in/sanshraychada/" },
       { name: "Aaditya Shah" },
       { name: "Ferris Chia" },
       { name: "Gurvir Singh" },
