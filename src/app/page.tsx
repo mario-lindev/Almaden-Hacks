@@ -43,7 +43,7 @@ export default function Home() {
       </section>
 
       <section className="sponsors section-wrap" id="sponsors" aria-labelledby="sponsors-title">
-        <div className="sponsor-heading"><h2 id="sponsors-title">Supported by good people.</h2><p>Prizes, tools, and support for Almaden Hacks.</p></div>
+        <div className="sponsor-heading"><h2 id="sponsors-title">Partners &amp; Sponsors</h2><p>Prizes, tools, and support for Almaden Hacks.</p></div>
         <Sponsors />
       </section>
 
