@@ -101,6 +101,13 @@ export const SPONSOR_GROUPS: SponsorGroup[] = [
     "title": "Bronze",
     "backers": [
       {
+        "name": "Browserbase",
+        "href": "https://www.browserbase.com",
+        "logo": "/marks/browserbase.svg",
+        "description": "Three free months of the Developer plan for students. Payment card required; usage overages are billed, and the plan renews at $20/month plus overages after three months.",
+        "layout": "wordmark"
+      },
+      {
         "name": "Doorstop Education",
         "href": "https://doorstopeducation.org",
         "logo": "/marks/doorstop.svg",
