@@ -56,7 +56,8 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
     const sample = document.createElement("canvas");
     const s = sample.getContext("2d", { willReadFrequently: true });
     if (!canvas || !ctx || !s) return;
-    const motion = animate && !matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const preference = matchMedia("(prefers-reduced-motion: reduce)");
+    let motion = animate && !preference.matches;
     const mono = getComputedStyle(document.body).getPropertyValue("--font-mono").trim() || "monospace";
     let frame = 0, started = 0, last = 0, pausedAt = 0;
     let visible = false, disposed = false;
@@ -162,12 +163,14 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
     observer.observe(canvas);
     const onVisibility = () => (document.hidden ? pause() : resume());
     const onResize = () => { last = 0; start(); };
+    const onMotion = () => { motion = animate && !preference.matches; started = 0; last = 0; start(); };
     const onPointer = (e: PointerEvent) => {
       pointer.x = e.clientX; pointer.y = e.clientY;
       if (!motion) { last = 0; start(); }
     };
     const onLeave = () => { pointer.x = pointer.y = -1e4; };
     window.addEventListener("resize", onResize);
+    preference.addEventListener("change", onMotion);
     if (lensRef.current) {
       window.addEventListener("pointermove", onPointer, { passive: true });
       document.documentElement.addEventListener("pointerleave", onLeave);
@@ -178,6 +181,7 @@ export default function AsciiCanvas({ label, className = "", layers, cell = w =>
       cancelAnimationFrame(frame);
       observer.disconnect();
       window.removeEventListener("resize", onResize);
+      preference.removeEventListener("change", onMotion);
       window.removeEventListener("pointermove", onPointer);
       document.documentElement.removeEventListener("pointerleave", onLeave);
       document.removeEventListener("visibilitychange", onVisibility);
