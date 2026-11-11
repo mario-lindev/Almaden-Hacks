@@ -26,17 +26,17 @@ const teams: Team[] = [
     members: [
       {
         name: "Mario Lin",
-        role: "Co-Founder, Lead Outreach and Developer",
+        role: "Co-Founder, Lead Outreach and Lead Developer",
         href: "https://www.linkedin.com/in/mario-lin7/",
       },
       {
         name: "Rishith Chennupati",
-        role: "Co-Founder, Lead Outreach and Developer",
+        role: "Co-Founder, Lead Outreach and Lead Developer",
         href: "https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/",
       },
       {
         name: "Varun Chilukuri",
-        role: "Co-Founder, Lead Outreach",
+        role: "Co-Founder, Lead Outreach and Supporting Developer",
         href: "https://www.linkedin.com/in/varunchilukuri26/",
       },
     ],
