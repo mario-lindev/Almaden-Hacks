@@ -14,8 +14,8 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
     id: "lead",
     title: "Lead Organizer",
     members: [
-      { name: "Mario Lin", role: "Co-founder", href: "https://www.linkedin.com/in/mario-lin7/" },
-      { name: "Rishith Chennupati", role: "Co-founder", href: "https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/" },
+      { name: "Mario Lin", role: "Co-founder, lead outreach and developer", href: "https://www.linkedin.com/in/mario-lin7/" },
+      { name: "Rishith Chennupati", role: "Co-founder, lead outreach and developer", href: "https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/" },
     ],
   },
   {
