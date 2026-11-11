@@ -58,7 +58,7 @@ function MemberCard({ member }: { member: TeamMember }) {
   );
 
   return member.href ? (
-    <a className={styles.card} href={member.href}>
+    <a className={styles.card} href={member.href} target="_blank" rel="noopener noreferrer">
       {details}
       <span aria-hidden="true">↗</span>
     </a>
