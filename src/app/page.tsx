@@ -9,7 +9,7 @@ import { EVENT_LINKS } from "@/lib/event";
 
 const faqs = [
   ["New to hackathons?", "You’re welcome here. Build an app, game, website, or hardware project with other high school students. No experience needed."],
-  ["When and where?", "June 12, 2027, starting at 8:00 AM Pacific in Almaden Valley, San Jose. The venue and full eligibility details are coming soon."],
+  ["When and where?", "June 5, 2027, starting at 8:00 AM Pacific in Almaden Valley, San Jose. The venue and full eligibility details are coming soon."],
   ["Do I need a team?", "Come with friends or meet teammates at the event. Bring a laptop and charger; team details and a packing list will follow."],
   ["Will there be hardware?", "Yes! Hardware will be part of Almaden Hacks, alongside software projects. Details on available equipment and materials are coming soon."],
   ["Can I help or sponsor?", "Yes. Support the event through our HCB page. Mentor and sponsorship details are coming soon."],
@@ -31,7 +31,7 @@ export default function Home() {
       </section>
 
       <section className="event-bar section-wrap" aria-label="Event details">
-        <div className="event-date"><time dateTime="2027-06-12T08:00:00-07:00">June 12, 2027</time><p>8:00 AM Pacific · Almaden Valley, San Jose</p></div>
+        <div className="event-date"><time dateTime="2027-06-05T08:00:00-07:00">June 5, 2027</time><p>8:00 AM Pacific · Almaden Valley, San Jose</p></div>
         <Clock />
       </section>
 
