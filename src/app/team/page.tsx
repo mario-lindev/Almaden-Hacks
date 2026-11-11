@@ -14,32 +14,32 @@ const teams: { id: string; title: string; members: TeamMember[] }[] = [
     id: "lead",
     title: "Lead Organizer",
     members: [
-      { name: "Mario Lin", href: "https://www.linkedin.com/in/mario-lin7/" },
-      { name: "Rishith Chennupati", href: "https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/" },
+      { name: "Mario Lin", role: "Co-founder", href: "https://www.linkedin.com/in/mario-lin7/" },
+      { name: "Rishith Chennupati", role: "Co-founder, 8× hackathon winner", href: "https://www.linkedin.com/in/rishith-chennupati-b4ba202a4/" },
     ],
   },
   {
     id: "executive",
     title: "Executive",
-    members: [{ name: "Varun Chilukuri", href: "https://www.linkedin.com/in/varunchilukuri26/" }],
+    members: [{ name: "Varun Chilukuri", role: "Co-founder", href: "https://www.linkedin.com/in/varunchilukuri26/" }],
   },
   {
     id: "design-marketing",
     title: "Design & Marketing",
     members: [
-      { name: "Tristan Cadatal" },
-      { name: "Moksh Shah" },
-      { name: "Quincy Cadatal" },
+      { name: "Tristan Cadatal", role: "Outreach" },
+      { name: "Moksh Shah", role: "Outreach" },
+      { name: "Quincy Cadatal", role: "Outreach" },
     ],
   },
   {
     id: "operations",
     title: "Operations",
     members: [
-      { name: "Sanshray Chada", href: "https://www.linkedin.com/in/sanshraychada/" },
-      { name: "Aaditya Shah", href: "https://aadityashah.vercel.app/" },
-      { name: "Ferris Chia" },
-      { name: "Gurvir Singh" },
+      { name: "Sanshray Chada", role: "Outreach and helper", href: "https://www.linkedin.com/in/sanshraychada/" },
+      { name: "Aaditya Shah", role: "Helper", href: "https://aadityashah.vercel.app/" },
+      { name: "Ferris Chia", role: "Helper" },
+      { name: "Gurvir Singh", role: "Helper" },
     ],
   },
   {
