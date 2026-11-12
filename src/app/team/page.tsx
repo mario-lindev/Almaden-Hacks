@@ -81,11 +81,6 @@ const teams: Team[] = [
         href: "https://www.linkedin.com/in/oliver-lin-41999a14/",
       },
       {
-        name: "Usha Kiran",
-        role: "Senior Manager @ Adobe, Volunteer Judge (Software)",
-        href: "https://www.linkedin.com/in/ushakiran1/",
-      },
-      {
         name: "Varsha Chilukuri",
         role: "AI Engineer @ Observe.AI, Volunteer Judge (Software)",
         href: "https://www.linkedin.com/in/varshachilukuri/",
