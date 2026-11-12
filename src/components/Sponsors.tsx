@@ -33,14 +33,51 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
   );
 }
 
+function SponsorCycle({ sponsors }: { sponsors: Sponsor[] }) {
+  return (
+    <div className={styles.cycle}>
+      <input className={styles.cyclePause} id="sponsor-cycle-pause" type="checkbox" />
+      <label htmlFor="sponsor-cycle-pause">Pause logo animation</label>
+      <div className={styles.cycleWindow} aria-hidden="true">
+        <div className={styles.cycleTrack}>
+          {[0, 1].map((copy) => (
+            <div className={styles.cycleGroup} key={copy}>
+              {sponsors.map((sponsor) => (
+                <div
+                  className={styles.cycleMark}
+                  data-dark={sponsor.layout === "featured" || sponsor.name === "Scrimba"}
+                  key={sponsor.name}
+                >
+                  <Image
+                    className={sponsor.name === "CodeCrafters" ? styles.darkMark : undefined}
+                    src={sponsor.logo}
+                    alt=""
+                    width={128}
+                    height={40}
+                    loading="eager"
+                  />
+                  {!sponsor.layout && <span>{sponsor.name}</span>}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Sponsors() {
   const confirmedGroups = SPONSOR_GROUPS.map((group) => ({
     ...group,
     backers: group.backers.filter((sponsor) => !sponsor.pending),
   })).filter((group) => group.backers.length > 0);
 
+  const sponsors = confirmedGroups.flatMap((group) => group.backers);
+
   return (
     <div className={styles.tiers}>
+      {sponsors.length > 0 && <SponsorCycle sponsors={sponsors} />}
       {confirmedGroups.map((group) => (
         <section className={styles.tier} data-tier={group.title} aria-label={group.title} key={group.title}>
           <h3 className={styles.tierTitle}>{group.title}</h3>

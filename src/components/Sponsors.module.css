@@ -85,3 +85,81 @@
 
 /* The official Scrimba wordmark is white; retain its intended dark surface. */
 .tile:has(img[alt="Scrimba"]), .tile:has(img[alt="Scrimba"]):hover { background: var(--sponsor-ink); border-color: var(--sponsor-ink); }
+
+.cycle {
+  margin-bottom: clamp(24px, 4vw, 44px);
+  font-size: 0.875rem;
+  color: var(--sponsor-muted);
+}
+
+.cyclePause {
+  margin-right: 0.4em;
+  accent-color: var(--sponsor-ink);
+}
+
+.cycleWindow {
+  overflow: hidden;
+  margin-top: 10px;
+  padding-block: 16px;
+  border-block: 1px solid var(--sponsor-line);
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.cycleTrack {
+  display: flex;
+  width: max-content;
+  animation: sponsor-cycle 50s linear infinite;
+}
+
+.cycleGroup {
+  display: flex;
+  flex: none;
+  gap: 16px;
+  padding-inline-end: 16px;
+}
+
+.cycleMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: clamp(128px, 15vw, 174px);
+  min-height: 64px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--sponsor-paper);
+  color: var(--sponsor-ink);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.cycleMark[data-dark="true"] {
+  background: var(--sponsor-dark);
+}
+
+.cycleMark img {
+  width: 100%;
+  max-width: 126px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.cycleMark:has(span) img {
+  flex: none;
+  width: 28px;
+  height: 28px;
+}
+
+.cyclePause:checked ~ .cycleWindow .cycleTrack,
+.cycleWindow:hover .cycleTrack {
+  animation-play-state: paused;
+}
+
+@keyframes sponsor-cycle {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cycle { display: none; }
+  .cycleTrack { animation: none; }
+}
