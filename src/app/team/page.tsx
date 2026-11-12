@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import styles from "./Team.module.css";
@@ -112,15 +113,25 @@ export default function TeamPage() {
     <>
       <a className="skip-link" href="#main">Skip to content</a>
       <Nav />
-      <main id="main" className={`section-wrap ${styles.page}`}>
+      <main id="main" className={styles.page}>
         <header className={styles.intro}>
-          <h1>Our Team</h1>
-          <p>Meet the students organizing Almaden Hacks at Leland High School.</p>
+          <div className={styles.introCopy}>
+            <h1>Our Team</h1>
+            <p>Meet the Leland High School students and volunteers behind Almaden Hacks.</p>
+          </div>
+          <div className={styles.landscape}>
+            <Image
+              src="/art/almaden-scene-soft-sky.webp"
+              alt=""
+              fill
+              sizes="(max-width: 720px) 100vw, 55vw"
+            />
+          </div>
         </header>
 
         <div className={styles.teams}>
           {teams.map((team) => (
-            <section key={team.id} aria-labelledby={`team-${team.id}`}>
+            <section className={styles.group} key={team.id} aria-labelledby={`team-${team.id}`}>
               <h2 id={`team-${team.id}`}>{team.title}</h2>
               <ul className={styles.grid}>
                 {team.members.map((member) => (
