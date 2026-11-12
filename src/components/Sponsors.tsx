@@ -34,34 +34,41 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
 }
 
 function SponsorCycle({ sponsors }: { sponsors: Sponsor[] }) {
+  const rows = [
+    sponsors.filter((_, index) => index % 2 === 0),
+    sponsors.filter((_, index) => index % 2 === 1),
+  ].filter((row) => row.length > 0);
+
   return (
     <div className={styles.cycle}>
       <input className={styles.cyclePause} id="sponsor-cycle-pause" type="checkbox" />
       <label htmlFor="sponsor-cycle-pause">Pause logo animation</label>
       <div className={styles.cycleWindow} aria-hidden="true">
-        <div className={styles.cycleTrack}>
-          {[0, 1].map((copy) => (
-            <div className={styles.cycleGroup} key={copy}>
-              {sponsors.map((sponsor) => (
-                <div
-                  className={styles.cycleMark}
-                  data-dark={sponsor.layout === "featured" || sponsor.name === "Scrimba"}
-                  key={sponsor.name}
-                >
-                  <Image
-                    className={sponsor.name === "CodeCrafters" ? styles.darkMark : undefined}
-                    src={sponsor.logo}
-                    alt=""
-                    width={128}
-                    height={40}
-                    loading="eager"
-                  />
-                  {!sponsor.layout && <span>{sponsor.name}</span>}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+        {rows.map((row, index) => (
+          <div className={styles.cycleTrack} key={index}>
+            {[0, 1, 2].map((copy) => (
+              <div className={styles.cycleGroup} key={copy}>
+                {row.map((sponsor) => (
+                  <div
+                    className={styles.cycleMark}
+                    data-dark={sponsor.layout === "featured" || sponsor.name === "Scrimba"}
+                    key={sponsor.name}
+                  >
+                    <Image
+                      className={sponsor.name === "CodeCrafters" ? styles.darkMark : undefined}
+                      src={sponsor.logo}
+                      alt=""
+                      width={128}
+                      height={40}
+                      loading="eager"
+                    />
+                    {!sponsor.layout && <span>{sponsor.name}</span>}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );
