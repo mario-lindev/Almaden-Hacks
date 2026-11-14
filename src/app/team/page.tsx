@@ -70,6 +70,7 @@ const teams: Team[] = [
       },
       { name: "Ferris Chia", role: "Helper" },
       { name: "Gurvir Singh", role: "Helper" },
+      { name: "Junsu Park", role: "Helper" },
     ],
   },
   {
